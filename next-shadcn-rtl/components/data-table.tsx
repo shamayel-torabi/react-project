@@ -288,7 +288,7 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
   {
     id: "actions",
     cell: () => (
-      <DropdownMenu>
+      <DropdownMenu dir="rtl">
         <DropdownMenuTrigger asChild>
           <Button
             variant="ghost"
@@ -299,12 +299,12 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
             <span className="sr-only">Open menu</span>
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent align="end" className="w-32">
-          <DropdownMenuItem>Edit</DropdownMenuItem>
-          <DropdownMenuItem>Make a copy</DropdownMenuItem>
-          <DropdownMenuItem>Favorite</DropdownMenuItem>
+        <DropdownMenuContent align="end" className="w-32" >
+          <DropdownMenuItem>ویرایش</DropdownMenuItem>
+          <DropdownMenuItem>ایجاد کپی</DropdownMenuItem>
+          <DropdownMenuItem>دلخواه</DropdownMenuItem>
           <DropdownMenuSeparator />
-          <DropdownMenuItem variant="destructive">Delete</DropdownMenuItem>
+          <DropdownMenuItem variant="destructive">حذف</DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
     ),
@@ -487,7 +487,7 @@ export function DataTable({
             sensors={sensors}
             id={sortableId}
           >
-            <Table>
+            <Table dir="rtl">
               <TableHeader className="bg-muted sticky top-0 z-10">
                 {table.getHeaderGroups().map((headerGroup) => (
                   <TableRow key={headerGroup.id}>
