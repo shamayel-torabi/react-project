@@ -3,16 +3,16 @@
 import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Calendar } from "@/components/ui/calendar"
-import { PersianDatePicker } from "./ui/daypicker";
+import { DatePicker, PersianDatePicker } from "./ui/daypicker";
+import { Label } from "./ui/label";
 
 
 export const Lifecycle = () => {
     const [date, setDate] = useState<Date | undefined>(new Date());
 
-    const handleSelect = (selected: Date) => {
+    const handleSelect = (selected: Date | undefined) => {
         setDate(selected);
     }
-
 
     return (
         <Card className="@container/card ">
@@ -31,7 +31,15 @@ export const Lifecycle = () => {
                     mode="single"
                     selected={date}
                     onSelect={handleSelect} required />
-                <PersianDatePicker />
+
+                <div className='w-full max-w-xs space-y-2'>
+                    <Label htmlFor='date' className='px-1'>
+                        انتخاب تاریخ درون یک ورودی متن
+                    </Label>
+                    <PersianDatePicker selected={date} onSelect={handleSelect}/>
+                </div>
+
+                {/* <DatePicker selected={date} onSelect={handleSelect} /> */}
             </CardContent>
         </Card>
     )
