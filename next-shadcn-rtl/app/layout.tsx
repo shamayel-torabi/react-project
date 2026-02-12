@@ -6,6 +6,7 @@ import "./globals.css";
 
 const vazirMatn = Vazirmatn({
   subsets: ["arabic"],
+  variable: "--font-sans",
 });
 
 export const metadata: Metadata = {

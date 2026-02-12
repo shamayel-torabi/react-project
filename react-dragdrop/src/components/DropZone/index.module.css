@@ -1,0 +1,24 @@
+.drop-zone {
+  display: flex;
+  flex-direction: column;
+  inline-size: 24rem;
+  block-size: 32rem;
+  background-color: darkgrey;
+  margin: 0.2rem;
+
+  .title {
+    font-weight: 600;
+    text-align: center;
+    background-color: grey;
+    padding: 0.5rem;
+  }
+  .active {
+    background-color: red;
+  }
+
+  > ul {
+    list-style: none;
+    padding: 0.5rem;
+    overflow-y: auto;
+  }
+}

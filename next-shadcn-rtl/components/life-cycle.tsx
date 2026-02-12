@@ -1,10 +1,9 @@
 "use client"
 
+import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Calendar } from "@/components/ui/calendar"
-import { useState } from "react";
-import { DatePicker } from "./ui/daypicker";
-import { Modifiers } from "react-day-picker";
+import { PersianDatePicker } from "./ui/daypicker";
 
 
 export const Lifecycle = () => {
@@ -32,7 +31,7 @@ export const Lifecycle = () => {
                     mode="single"
                     selected={date}
                     onSelect={handleSelect} required />
-                {/* <DatePicker selected={date} onSelect={setDate} /> */}
+                <PersianDatePicker />
             </CardContent>
         </Card>
     )

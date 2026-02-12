@@ -1,0 +1,21 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  min-inline-size: min(48rem, 100vw);
+  overflow-y: auto;
+
+  header {
+    display: flex;
+    align-items: center;
+    block-size: 4rem;
+    inline-size: 100vw;
+    padding-inline: 1rem;
+    background-color: burlywood;
+  }
+
+  section {
+    display: flex;
+  }
+}
