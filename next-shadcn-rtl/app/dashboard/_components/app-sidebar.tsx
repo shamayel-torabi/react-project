@@ -17,12 +17,13 @@ import {
   IconSearch,
   IconSettings,
   IconUsers,
+  IconBrandProducthunt
 } from "@tabler/icons-react"
 
-import { NavDocuments } from "@/components/nav-documents"
-import { NavMain } from "@/components/nav-main"
-import { NavSecondary } from "@/components/nav-secondary"
-import { NavUser } from "@/components/nav-user"
+import { NavDocuments } from "@/app/dashboard/_components/nav-documents"
+import { NavMain } from "@/app/dashboard/_components/nav-main"
+import { NavSecondary } from "@/app/dashboard/_components/nav-secondary"
+import { NavUser } from "@/app/dashboard/_components/nav-user"
 import {
   Sidebar,
   SidebarContent,
@@ -49,6 +50,11 @@ const data = {
       title: "طول عمر",
       url: "/dashboard/lifecycle",
       icon: IconListDetails,
+    },
+    {
+      title: "نمایش سند",
+      url: "/dashboard/pdf-viewer",
+      icon: IconBrandProducthunt,
     },
     {
       title: "تحلیل",

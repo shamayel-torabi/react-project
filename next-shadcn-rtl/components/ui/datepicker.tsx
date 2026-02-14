@@ -8,9 +8,6 @@ import {
 } from "@/components/ui/popover"
 import { CalendarIcon } from "lucide-react"
 import { useState } from "react"
-import { Input } from "./input"
-import { Button } from "./button"
-import { Field, FieldLabel } from "./field"
 import { InputGroup, InputGroupAddon, InputGroupButton, InputGroupInput } from "./input-group"
 
 
@@ -115,58 +112,60 @@ export function PersianDatePicker({ selected, onSelect }: Props) {
   }
 
   return (
-    <>
-      <InputGroup>
-        <InputGroupInput
-          id="date-required"
-          value={value}
-          placeholder="انتخاب تاریخ"
-          readOnly
-          onChange={(e) => {
-            const date = new Date(e.target.value)
-            setValue(e.target.value)
-            if (isValidDate(date)) {
-              setDate(date)
-              setMonth(date)
-            }
-          }}
-          onKeyDown={(e) => {
-            if (e.key === "ArrowDown") {
-              e.preventDefault()
-              setOpen(true)
-            }
-          }}
-        />
-        <InputGroupAddon align="inline-end">
-          <Popover open={open} onOpenChange={setOpen}>
-            <PopoverTrigger asChild>
-              <InputGroupButton
-                id="date-picker"
-                variant="ghost"
-                size="icon-xs"
-                aria-label="Select date"
-              >
-                <CalendarIcon />
-                <span className="sr-only">Select date</span>
-              </InputGroupButton>
-            </PopoverTrigger>
-            <PopoverContent
-              className="w-auto overflow-hidden p-0"
-              align="end"
-              alignOffset={-8}
-              sideOffset={10}
+    <InputGroup>
+      <InputGroupInput
+        id="date-required"
+        value={value}
+        placeholder="انتخاب تاریخ"
+        readOnly
+        onChange={(e) => {
+          const date = new Date(e.target.value)
+          setValue(e.target.value)
+          if (isValidDate(date)) {
+            setDate(date)
+            setMonth(date)
+          }
+        }}
+        onKeyDown={(e) => {
+          if (e.key === "ArrowDown") {
+            e.preventDefault()
+            setOpen(true)
+          }
+        }}
+
+        onClick={(e) =>{
+          setOpen(true)
+        }}
+      />
+      <InputGroupAddon align="inline-end">
+        <Popover open={open} onOpenChange={setOpen}>
+          <PopoverTrigger asChild>
+            <InputGroupButton
+              id="date-picker"
+              variant="ghost"
+              size="icon-xs"
+              aria-label="Select date"
             >
-              <Calendar
-                mode="single"
-                selected={date}
-                month={month}
-                onMonthChange={setMonth}
-                onSelect={handleSelect}
-              />
-            </PopoverContent>
-          </Popover>
-        </InputGroupAddon>
-      </InputGroup>
-    </>
+              <CalendarIcon />
+              <span className="sr-only">انتخاب تاریخ</span>
+            </InputGroupButton>
+          </PopoverTrigger>
+          <PopoverContent
+            className="w-auto overflow-hidden p-0"
+            align="end"
+            alignOffset={-8}
+            sideOffset={10}
+          >
+            <Calendar
+              mode="single"
+              selected={date}
+              month={month}
+              onMonthChange={setMonth}
+              onSelect={handleSelect}
+            />
+          </PopoverContent>
+        </Popover>
+      </InputGroupAddon>
+    </InputGroup>
   )
 }

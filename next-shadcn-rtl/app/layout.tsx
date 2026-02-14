@@ -21,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fa" dir="rtl">
-      <body className={`${vazirMatn.variable} antialiased h-full`}>
+      <body className={`${vazirMatn.className} antialiased h-full`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

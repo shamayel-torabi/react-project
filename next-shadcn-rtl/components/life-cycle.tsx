@@ -4,12 +4,11 @@ import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Calendar } from "@/components/ui/calendar"
 import { PersianDatePicker } from "./ui/datepicker";
-import { Label } from "./ui/label";
 import { Field, FieldLabel } from "./ui/field";
 
 
 export const Lifecycle = () => {
-    const [date, setDate] = useState<Date | undefined>(new Date());
+    const [date, setDate] = useState<Date | undefined>();
 
     const handleSelect = (selected: Date | undefined) => {
         setDate(selected);
