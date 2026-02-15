@@ -3,8 +3,8 @@
 import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Calendar } from "@/components/ui/calendar"
-import { PersianDatePicker } from "./ui/datepicker";
-import { Field, FieldLabel } from "./ui/field";
+import { PersianDatePicker } from "../../../components/ui/datepicker";
+import { Field, FieldLabel } from "../../../components/ui/field";
 
 
 export const Lifecycle = () => {

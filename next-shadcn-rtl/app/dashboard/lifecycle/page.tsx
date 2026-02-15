@@ -1,4 +1,4 @@
-import { Lifecycle } from "@/components/life-cycle";
+import { Lifecycle } from "@/app/dashboard/lifecycle/life-cycle";
 
 import { DialogCloseButton } from "./dialog-demo";
 import { AlertDialogDemo } from "./alert-dialog-demo";
