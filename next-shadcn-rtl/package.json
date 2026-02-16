@@ -18,6 +18,7 @@
     "@embedpdf/plugin-document-manager": "^2.6.0",
     "@embedpdf/plugin-render": "^2.6.0",
     "@embedpdf/plugin-scroll": "^2.6.0",
+    "@embedpdf/plugin-view-manager": "^2.6.0",
     "@embedpdf/plugin-viewport": "^2.6.0",
     "@embedpdf/plugin-zoom": "^2.6.0",
     "@embedpdf/react-pdf-viewer": "^2.6.0",

@@ -1,0 +1,50 @@
+import { Locale } from './types';
+
+export const faIR: Locale = {
+  code: 'fa',
+  name: 'Persian',
+  translations: {
+    commands: {
+      zoom: {
+        in: 'بزرگنمایی',
+        out: 'کوچک نمایی',
+        fitWidth: 'متناسب با عرض',
+        fitPage: 'متناسب با طول',
+        automatic: 'خودکار',
+        level: 'بزرگنمایی ({level}%)',
+        inArea: 'بزرگنمایی در ناحیه',
+      },
+      fullscreen: {
+        enter: 'ورود به تمام صفحه',
+        exit: 'خروج از تمام صفحه',
+      },
+      rotate: {
+        clockwise: 'Rotate Clockwise',
+        counterclockwise: 'Rotate Counter-Clockwise',
+      },
+      menu: 'منو',
+      sidebar: 'Sidebar',
+      search: 'جستجو',
+      comment: 'Comment',
+      download: 'بارگذاری',
+      print: 'Print',
+      openFile: 'Open PDF',
+      save: 'Save',
+      settings: 'Settings',
+      view: 'View',
+      annotate: 'Annotate',
+      shapes: 'Shapes',
+      redact: 'Redact',
+      fillAndSign: 'Fill and Sign',
+      form: 'Form',
+      pan: 'Pan',
+      pointer: 'Pointer',
+      undo: 'Undo',
+      redo: 'Redo',
+      copy: 'Copy',
+      screenshot: 'Screenshot',
+      nextPage: 'Next Page',
+      previousPage: 'Previous Page',
+    },
+  },
+};

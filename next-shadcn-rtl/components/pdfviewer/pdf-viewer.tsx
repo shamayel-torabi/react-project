@@ -3,7 +3,7 @@
 import { createPluginRegistration } from '@embedpdf/core'
 import { EmbedPDF } from '@embedpdf/core/react'
 import { usePdfiumEngine } from '@embedpdf/engines/react'
-import { useCallback } from 'react'
+import { useMemo } from 'react'
 import {
   Viewport,
   ViewportPluginPackage,
@@ -11,6 +11,7 @@ import {
 import { Scroller, ScrollPluginPackage } from '@embedpdf/plugin-scroll/react'
 import {
   DocumentContent,
+  DocumentManagerPlugin,
   DocumentManagerPluginPackage,
 } from '@embedpdf/plugin-document-manager/react'
 import { RenderLayer, RenderPluginPackage } from '@embedpdf/plugin-render/react'
@@ -21,6 +22,8 @@ import {
 } from '@embedpdf/plugin-zoom/react'
 import { Loader2 } from 'lucide-react'
 import { ZoomToolbar } from './zoom-toolbar'
+import { ViewManagerPlugin } from '@embedpdf/plugin-view-manager/react'
+import { PageControls } from './components/page-controls'
 
 type Props = {
   url: string;
@@ -29,11 +32,9 @@ type Props = {
 export const PDFViewer = ({ url }: Props) => {
   const { engine, isLoading } = usePdfiumEngine()
 
-  const plugins = useCallback((url: string) => {
+  const plugins = useMemo(() => {
     return [
-      createPluginRegistration(DocumentManagerPluginPackage, {
-        initialDocuments: [{ url }],
-      }),
+      createPluginRegistration(DocumentManagerPluginPackage),
       createPluginRegistration(ViewportPluginPackage),
       createPluginRegistration(ScrollPluginPackage),
       createPluginRegistration(RenderPluginPackage),
@@ -57,7 +58,32 @@ export const PDFViewer = ({ url }: Props) => {
   }
 
   return (
-    <EmbedPDF engine={engine} plugins={plugins(url)}>
+    <EmbedPDF
+      engine={engine}
+      plugins={plugins}
+      onInitialized={async (registry) => {
+        // Load default PDF URL on initialization
+        const document = await registry
+          ?.getPlugin<DocumentManagerPlugin>(DocumentManagerPlugin.id)
+          ?.provides()
+          ?.openDocumentUrl({ url })
+          .toPromise();
+
+        if (!document) return;
+
+        const viewManager = registry
+          ?.getPlugin<ViewManagerPlugin>(ViewManagerPlugin.id)
+          ?.provides();
+        if (!viewManager) return;
+
+        const views = viewManager.getAllViews();
+        if (views.length > 0 && views[0]) {
+          const firstViewId = views[0].id;
+          viewManager.addDocumentToView(firstViewId, document.documentId);
+          viewManager.setViewActiveDocument(firstViewId, document.documentId);
+        }
+      }}
+    >
       {({ activeDocumentId }) =>
         activeDocumentId && (
           <DocumentContent documentId={activeDocumentId}>
@@ -95,6 +121,7 @@ export const PDFViewer = ({ url }: Props) => {
                         )}
                       />
                     </Viewport>
+                    <PageControls documentId={activeDocumentId} />
                   </div>
                 </div>
               )
