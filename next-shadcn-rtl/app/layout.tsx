@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
-import { Vazirmatn } from "next/font/google";
+import localFont from 'next/font/local'
 import { TooltipProvider } from '@/components/ui/tooltip';
 import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 
-const vazirMatn = Vazirmatn({
-  subsets: ["arabic"],
-  variable: "--font-sans",
-});
+ 
+const vazirMatn = localFont({
+  src: './fonts/webfonts/Vazirmatn[wght].woff2',
+  weight: '100 900',
+  variable: '--font-sans',  
+})
 
 export const metadata: Metadata = {
   title: "Next RTL Demo App",

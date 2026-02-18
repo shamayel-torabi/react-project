@@ -31,7 +31,7 @@ export function ViewerToolbar({
   return (
     <>
       {/* Main Toolbar */}
-      <div className="flex items-center gap-2 border-b border-gray-300 bg-white px-3 py-2">
+      <div className="flex items-center gap-2 border-b border-gray-300 bg-gray-100 dark:border-gray-700 dark:bg-gray-800 px-3 py-2">
         {/* Left side - Document menu and Thumbnails toggle */}
         <DocumentMenu documentId={documentId} />
         <ToolbarDivider />
@@ -39,7 +39,7 @@ export function ViewerToolbar({
           onClick={onToggleThumbnails}
           isActive={isThumbnailsOpen}
           aria-label="Toggle thumbnails"
-          title="Toggle Thumbnails"
+          title="نمایش خلاصه"
         >
           <ThumbnailsIcon className="h-4 w-4" />
         </ToolbarButton>
@@ -93,7 +93,7 @@ export function ViewerToolbar({
           onClick={onToggleSearch}
           isActive={isSearchOpen}
           aria-label="Toggle search"
-          title="Toggle Search"
+          title="نمایش جستجو"
         >
           <SearchIcon className="h-4 w-4" />
         </ToolbarButton>

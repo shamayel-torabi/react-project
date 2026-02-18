@@ -37,7 +37,7 @@
   --sidebar-border: hsl(218 13% 84%);
   --sidebar-ring: hsl(238 82% 67%);
 
-  --font-sans: Inter, sans-serif;
+  --font-sans: sans-serif;
   --font-serif: Merriweather, serif;
   --font-mono: JetBrains Mono, monospace;
 
@@ -151,6 +151,11 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
+  }
+  html {
+    -moz-font-feature-settings: "ss01";
+    -webkit-font-feature-settings: "ss01";
+    font-feature-settings: "ss01";
   }
   body {
     @apply bg-background text-foreground;

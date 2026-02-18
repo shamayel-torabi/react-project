@@ -3,7 +3,7 @@
 import { createPluginRegistration } from '@embedpdf/core'
 import { EmbedPDF } from '@embedpdf/core/react'
 import { usePdfiumEngine } from '@embedpdf/engines/react'
-import { useMemo } from 'react'
+import { useMemo, useState } from 'react'
 import {
   Viewport,
   ViewportPluginPackage,
@@ -20,17 +20,21 @@ import {
   ZoomPluginPackage,
   ZoomMode,
 } from '@embedpdf/plugin-zoom/react'
+import { ThumbnailPluginPackage } from '@embedpdf/plugin-thumbnail/react';
+
 import { Loader2 } from 'lucide-react'
-import { ZoomToolbar } from './zoom-toolbar'
 import { ViewManagerPlugin } from '@embedpdf/plugin-view-manager/react'
 import { PageControls } from './components/page-controls'
+import Toolbar from './toolbar'
+import { ThumbnailsSidebar } from './thumbnail-sidebar'
 
 type Props = {
   url: string;
 }
 
 export const PDFViewer = ({ url }: Props) => {
-  const { engine, isLoading } = usePdfiumEngine()
+  const { engine, isLoading } = usePdfiumEngine();
+  const [sidebarStates, setSidebarStates] = useState<boolean>(false);
 
   const plugins = useMemo(() => {
     return [
@@ -41,6 +45,10 @@ export const PDFViewer = ({ url }: Props) => {
       createPluginRegistration(TilingPluginPackage),
       createPluginRegistration(ZoomPluginPackage, {
         defaultZoomLevel: ZoomMode.FitPage,
+      }),
+      createPluginRegistration(ThumbnailPluginPackage, {
+        width: 120,
+        paddingY: 10,
       }),
     ]
   }, [])
@@ -56,6 +64,11 @@ export const PDFViewer = ({ url }: Props) => {
       </div>
     )
   }
+
+
+  const toggleSidebar = () => {
+    setSidebarStates((prev) => !prev);
+  };
 
   return (
     <EmbedPDF
@@ -91,13 +104,21 @@ export const PDFViewer = ({ url }: Props) => {
               isLoaded && (
                 <div className="overflow-hidden rounded-lg border border-gray-300 bg-white shadow-sm dark:border-gray-700 dark:bg-gray-900">
                   {/* Toolbar */}
-                  <ZoomToolbar documentId={activeDocumentId} />
-
+                  <Toolbar
+                    documentId={activeDocumentId}
+                    onToggleThumbnails={toggleSidebar} />
                   {/* PDF Viewer Area */}
-                  <div className="relative h-[calc(100vh-10rem)]">
+                  <div className="relative flex h-[calc(100vh-10rem)]">
+                    {
+                      sidebarStates && <ThumbnailsSidebar
+                        documentId={activeDocumentId}
+                        onClose={() => toggleSidebar()}
+                      />
+                    }
+
                     <Viewport
                       documentId={activeDocumentId}
-                      className="absolute inset-0 bg-gray-200 dark:bg-gray-800"
+                      className="flex-1 bg-gray-200 dark:bg-gray-800"
                     >
                       <Scroller
                         documentId={activeDocumentId}

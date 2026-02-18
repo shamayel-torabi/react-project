@@ -1,19 +1,18 @@
 'use client'
 
+import { useScroll } from "@embedpdf/plugin-scroll/react";
 import { ThumbnailsPane, ThumbImg } from '@embedpdf/plugin-thumbnail/react';
-import { useScroll } from '@embedpdf/plugin-scroll/react';
 
-type ThumbnailsSidebarProps = {
+type Props = {
   documentId: string;
   onClose?: () => void;
-};
+}
 
-export function ThumbnailsSidebar({ documentId, onClose }: ThumbnailsSidebarProps) {
+export const ThumbnailsSidebar = ({ documentId, onClose }: Props) => {
   const { state, provides } = useScroll(documentId);
 
   return (
-    <div className="flex h-full flex-col bg-gray-50 w-48">
-      {/* Thumbnails */}
+    <div className="h-full w-48 flex flex-col">
       <div className="flex-1 overflow-hidden">
         <ThumbnailsPane documentId={documentId} style={{ width: '100%', height: '100%' }}>
           {(m) => (
@@ -75,5 +74,5 @@ export function ThumbnailsSidebar({ documentId, onClose }: ThumbnailsSidebarProp
         </ThumbnailsPane>
       </div>
     </div>
-  );
+  )
 }

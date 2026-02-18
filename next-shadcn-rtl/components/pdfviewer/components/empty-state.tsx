@@ -45,9 +45,9 @@ export function EmptyState({ onDocumentOpened }: EmptyStateProps) {
             </svg>
           </div>
         </div>
-        <h2 className="mb-3 text-2xl font-bold text-gray-900">سند بازی وجود ندارد</h2>
+        <h2 className="mb-3 text-2xl font-bold text-gray-900">سند باز وجود ندارد</h2>
         <p className="mb-8 text-gray-600">
-          Get started by opening a PDF document. You can view multiple documents at once using tabs.
+          با باز کردن یک سند شروع کنید. شما می توانید چندین سند را در برگه های جداگانه ببینید.
         </p>
         <button
           onClick={handleOpenFile}
@@ -56,9 +56,9 @@ export function EmptyState({ onDocumentOpened }: EmptyStateProps) {
           <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
           </svg>
-          Open PDF Document
+          باز کردن سند
         </button>
-        <div className="mt-6 text-sm text-gray-500">Supported format: PDF</div>
+        <div className="mt-6 text-sm text-gray-500">فرمت قابل پشتیبانی : PDF</div>
       </div>
     </div>
   );

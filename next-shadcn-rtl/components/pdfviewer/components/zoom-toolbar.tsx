@@ -69,7 +69,7 @@ export function ZoomToolbar({ documentId }: ZoomToolbarProps) {
 
   return (
     <div className="relative">
-      <div className="flex items-center gap-1 rounded bg-gray-100 px-2 py-1">
+      <div className="flex items-center gap-1 rounded px-2 py-1">
         {/* Zoom Out Button */}
         <button
           onClick={handleZoomOut}
@@ -151,11 +151,10 @@ export function ZoomToolbar({ documentId }: ZoomToolbarProps) {
 
         <DropdownItem
           onClick={handleToggleMarquee}
-          icon={<MarqueeIcon className="h-4 w-4" title="Marquee Zoom" />}
+          icon={<MarqueeIcon className="h-4 w-4" title="بزرگ نمایی انتخابی" />}
           isActive={state.isMarqueeZoomActive}
-        >
-          Marquee Zoom
-        </DropdownItem>
+        >بزرگ نمایی انتخابی
+                 </DropdownItem>
       </DropdownMenu>
     </div>
   );

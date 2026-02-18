@@ -139,7 +139,7 @@ export function DocumentLoadingExample({
       </div>
 
       {/* Viewer */}
-      <div className="h-[500px] w-full overflow-hidden rounded-xl border border-gray-300 shadow-lg dark:border-gray-600">
+      <div className="h-[calc(100vh-12rem)] flex items-center w-full overflow-hidden rounded-xl border border-gray-300 shadow-lg dark:border-gray-600">
         <PDFViewer
           ref={viewerRef}
           config={{

@@ -29,7 +29,7 @@ export function TabBar({ currentView, onSelect, onClose, onOpenFile }: TabBarPro
 
   return (
     <>
-      <div className="flex items-end gap-0.5 bg-gray-100 px-2 pt-2">
+      <div className="flex items-end gap-0.5 bg-gray-100 dark:bg-gray-900">
         {/* Document Tabs */}
         <div className="flex flex-1 items-end gap-0.5 overflow-x-auto">
           {documentStates.map((doc) => (
@@ -80,11 +80,11 @@ export function TabBar({ currentView, onSelect, onClose, onOpenFile }: TabBarPro
           {/* Add Tab (Open File) - placed directly after tabs like Chrome */}
           <button
             onClick={onOpenFile}
-            className="mb-2 ml-1 flex-shrink-0 cursor-pointer rounded p-1.5 text-gray-600 transition-colors hover:bg-gray-200/80 hover:text-gray-800"
+            className="mb-2 ml-1 flex-shrink-0 cursor-pointer rounded p-1.5 text-gray-600 dark:text-gray-50  transition-colors hover:bg-gray-200/80 hover:text-gray-800"
             aria-label="Open File"
-            title="Open File"
+            title="باز کردن پرونده"
           >
-            <PlusIcon className="h-3.5 w-3.5" title="Open File" />
+            <PlusIcon className="h-3.5 w-3.5" title="باز کردن پرونده" />
           </button>
         </div>
       </div>

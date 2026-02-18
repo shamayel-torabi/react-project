@@ -50,9 +50,7 @@ export function SplitViewLayout({ renderView }: SplitViewLayoutProps) {
           {(context) => (
             <div
               onClick={context.focus}
-              className={`relative overflow-hidden border ${
-                context.isFocused ? 'border-blue-500' : 'border-gray-300'
-              }`}
+              className="relative overflow-hidden border"
             >
               {renderView(context)}
             </div>

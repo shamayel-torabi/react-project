@@ -65,9 +65,9 @@ export function DocumentMenu({ documentId }: DocumentMenuProps) {
           <DropdownItem
             isActive={captureState.isMarqueeCaptureActive}
             onClick={handleScreenshot}
-            icon={<ScreenshotIcon className="h-4 w-4" title="Capture Area" />}
+            icon={<ScreenshotIcon className="h-4 w-4" title="ستاندن ناحیه" />}
           >
-            Capture Area
+            ستاندن ناحیه
           </DropdownItem>
           <DropdownItem
             onClick={handlePrint}

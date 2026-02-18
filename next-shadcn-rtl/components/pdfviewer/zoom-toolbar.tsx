@@ -35,39 +35,45 @@ export const ZoomToolbar = ({ documentId }: ZoomToolbarProps) => {
   if (!zoom) return null
 
   return (
-    <div className="flex flex-wrap items-center gap-3 border-b border-gray-300 bg-gray-100 px-3 py-2 dark:border-gray-700 dark:bg-gray-800">
-      {/* Zoom controls */}
-      <div className="flex items-center rounded">
-        <ButtonGroup>
-          <Button variant="ghost" onClick={zoom.zoomOut} title='کوچک نمایی'><ZoomOut size={12} /></Button>
-          <DropdownMenu dir="rtl">
-            <DropdownMenuTrigger asChild>
-              <Button variant="ghost" className='w-16 text-center'>
-                <span>{`${zoomPercentage}`}%</span>
-                <ChevronDownIcon className="h-6 w-6 transition-transform" />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent >
-              <DropdownMenuGroup>
-                <DropdownMenuItem onClick={() => zoom.requestZoom(25 / 100)}>25 %</DropdownMenuItem>
-                <DropdownMenuItem onClick={() => zoom.requestZoom(50 / 100)}>50 %</DropdownMenuItem>
-                <DropdownMenuItem onClick={() => zoom.requestZoom(100 / 100)}>100 %</DropdownMenuItem>
-                <DropdownMenuItem onClick={() => zoom.requestZoom(150 / 100)}>125 %</DropdownMenuItem>
-                <DropdownMenuItem onClick={() => zoom.requestZoom(150 / 100)}>150 %</DropdownMenuItem>
-                <DropdownMenuItem onClick={() => zoom.requestZoom(200 / 100)}>200 %</DropdownMenuItem>
-                <DropdownMenuItem onClick={() => zoom.requestZoom(400 / 100)}>400 %</DropdownMenuItem>
-                <DropdownMenuItem onClick={() => zoom.requestZoom(800 / 100)}>800 %</DropdownMenuItem>
-              </DropdownMenuGroup>
-              <DropdownMenuSeparator />
-              <DropdownMenuGroup>
-                <DropdownMenuItem onClick={() => zoom.requestZoom(ZoomMode.FitWidth)}>عرض صفحه</DropdownMenuItem>
-                <DropdownMenuItem onClick={() => zoom.requestZoom(ZoomMode.FitPage)}>طول صفحه</DropdownMenuItem>
-              </DropdownMenuGroup>
-            </DropdownMenuContent>
-          </DropdownMenu>
-          <Button variant="ghost" onClick={zoom.zoomIn} title='بزرگنمایی'><ZoomIn size={12} /></Button>
-        </ButtonGroup>
-      </div>
-    </div>
+    <ButtonGroup>
+      <Button variant="ghost" onClick={zoom.zoomOut} title='کوچک نمایی'><ZoomOut size={12} /></Button>
+      <DropdownMenu dir="rtl">
+        <DropdownMenuTrigger asChild>
+          <Button variant="ghost" className='w-16 text-center'>
+            <span>{`${zoomPercentage}`}%</span>
+            <ChevronDownIcon className="h-6 w-6 transition-transform" />
+          </Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent >
+          <DropdownMenuGroup>
+            <DropdownMenuItem onClick={zoom.zoomIn} title='بزرگنمایی'><ZoomIn size={12} />بزرگنمایی</DropdownMenuItem>
+            <DropdownMenuItem onClick={zoom.zoomOut} title='کوچک نمایی'><ZoomOut size={12} />کوچک نمایی</DropdownMenuItem>
+          </DropdownMenuGroup>
+          <DropdownMenuSeparator />
+          <DropdownMenuGroup>
+            <DropdownMenuItem onClick={() => zoom.requestZoom(25 / 100)}>25 %</DropdownMenuItem>
+            <DropdownMenuItem onClick={() => zoom.requestZoom(50 / 100)}>50 %</DropdownMenuItem>
+            <DropdownMenuItem onClick={() => zoom.requestZoom(100 / 100)}>100 %</DropdownMenuItem>
+            <DropdownMenuItem onClick={() => zoom.requestZoom(150 / 100)}>125 %</DropdownMenuItem>
+            <DropdownMenuItem onClick={() => zoom.requestZoom(150 / 100)}>150 %</DropdownMenuItem>
+            <DropdownMenuItem onClick={() => zoom.requestZoom(200 / 100)}>200 %</DropdownMenuItem>
+            <DropdownMenuItem onClick={() => zoom.requestZoom(400 / 100)}>400 %</DropdownMenuItem>
+            <DropdownMenuItem onClick={() => zoom.requestZoom(800 / 100)}>800 %</DropdownMenuItem>
+          </DropdownMenuGroup>
+          <DropdownMenuSeparator />
+          <DropdownMenuGroup>
+            <DropdownMenuItem onClick={() => zoom.requestZoom(ZoomMode.FitWidth)}>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" className="h-6 w-6"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M4 12v-6a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v6"></path><path d="M10 18h-7"></path><path d="M21 18h-7"></path><path d="M6 15l-3 3l3 3"></path><path d="M18 15l3 3l-3 3"></path></svg>
+              <span>عرض صفحه</span>
+            </DropdownMenuItem>
+            <DropdownMenuItem onClick={() => zoom.requestZoom(ZoomMode.FitPage)}>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" className="h-6 w-6"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M12 20h-6a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h6"></path><path d="M18 14v7"></path><path d="M18 3v7"></path><path d="M15 18l3 3l3 -3"></path><path d="M15 6l3 -3l3 3"></path></svg>
+              <span>طول صفحه</span>
+            </DropdownMenuItem>
+          </DropdownMenuGroup>
+        </DropdownMenuContent>
+      </DropdownMenu>
+      <Button variant="ghost" onClick={zoom.zoomIn} title='بزرگنمایی'><ZoomIn size={12} /></Button>
+    </ButtonGroup>
   )
 }

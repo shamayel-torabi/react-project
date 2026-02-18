@@ -46,6 +46,7 @@ import { SelectionSelectionMenu } from './components/selection-selection-menu';
 import { EmptyState } from './components/empty-state';
 import { I18nPluginPackage } from '@embedpdf/plugin-i18n/react';
 import { RedactionSelectionMenu } from './components/redaction-selection-menu';
+import { Card } from '../ui/card';
 
 const logger = new ConsoleLogger();
 
@@ -145,14 +146,14 @@ export function ViewerPage() {
 
   if (isLoading || !engine) {
     return (
-      <div className="flex h-[calc(100vh-7rem)] items-center justify-center">
+      <div className="flex h-[calc(100vh-7rem)] items-center justify-center bg-white dark:bg-gray-900">
         <LoadingSpinner size="lg" message="بارگذاری موتور ..." />
       </div>
     );
   }
 
   return (
-    <div className="flex h-[calc(100vh-7rem)] select-none flex-col overflow-hidden">
+    <Card className="@container/main flex h-[calc(100vh-7rem)] select-none flex-col overflow-hidden p-0">
       <EmbedPDF
         engine={engine}
         logger={logger}
@@ -257,7 +258,7 @@ export function ViewerPage() {
                               <>
                                 {isLoading && (
                                   <div className="flex h-full items-center justify-center">
-                                    <LoadingSpinner message="Loading document..." />
+                                    <LoadingSpinner  />
                                   </div>
                                 )}
                                 {isError && (
@@ -361,12 +362,12 @@ export function ViewerPage() {
               />
             ) : (
               <div className="flex h-full items-center justify-center">
-                <LoadingSpinner message="Initializing plugins..." />
+                <LoadingSpinner  />
               </div>
             )}
           </>
         )}
       </EmbedPDF>
-    </div>
+    </Card>
   );
 }
