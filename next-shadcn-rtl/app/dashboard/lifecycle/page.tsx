@@ -4,6 +4,9 @@ import { DialogCloseButton } from "./dialog-demo";
 import { AlertDialogDemo } from "./alert-dialog-demo";
 import { ButtonGroupeDemo } from "./button-group-demo";
 import { ContextMenuDemo } from "./contex-menu-demo";
+import { HoverCardDemo } from "./hover-card-demo";
+import { ItemDemo } from "./item-demo";
+import { RadioGroupDescription } from "./RadioGroupDescription";
 
 export default function LifeCyclePage() {
     return (
@@ -14,6 +17,9 @@ export default function LifeCyclePage() {
                 <AlertDialogDemo />
                 <ButtonGroupeDemo />
                 <ContextMenuDemo/>
+                <HoverCardDemo/>
+                <ItemDemo/>
+                <RadioGroupDescription/>
             </div>
         </div>
     )

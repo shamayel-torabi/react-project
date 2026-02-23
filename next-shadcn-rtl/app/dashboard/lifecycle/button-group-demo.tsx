@@ -42,9 +42,9 @@ import { SearchIcon } from "lucide-react"
 
 export function ButtonGroupeDemo() {
     return (
-        <Card className="@container/card  h-full">
+        <Card className="@container/card">
             <CardHeader>
-                <CardTitle>دکمه گروهی</CardTitle>
+                <CardTitle>آزمایش دکمه گروهی</CardTitle>
             </CardHeader>
             <CardContent className="px-2 sm:px-6 flex gap-4">
                 <ButtonGroupPopover />

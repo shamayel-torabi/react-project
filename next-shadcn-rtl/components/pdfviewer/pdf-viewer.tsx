@@ -56,7 +56,7 @@ export const PDFViewer = ({ url }: Props) => {
   if (isLoading || !engine) {
     return (
       <div className="overflow-hidden rounded-lg border border-gray-300 bg-white dark:border-gray-700 dark:bg-gray-900">
-        <div className="flex  h-[calc(100vh-7rem)] items-center justify-center">
+        <div className="flex  h-[calc(100vh-8rem)] items-center justify-center">
           <div className="flex items-center gap-2 text-gray-500 dark:text-gray-400">
             <Loader2 size={48} className="animate-spin" />
           </div>
@@ -108,7 +108,7 @@ export const PDFViewer = ({ url }: Props) => {
                     documentId={activeDocumentId}
                     onToggleThumbnails={toggleSidebar} />
                   {/* PDF Viewer Area */}
-                  <div className="relative flex h-[calc(100vh-10rem)]">
+                  <div className="relative flex h-[calc(100vh-8.5rem)] md:h-[calc(100vh-10.5rem)]">
                     {
                       sidebarStates && <ThumbnailsSidebar
                         documentId={activeDocumentId}

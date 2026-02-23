@@ -17,7 +17,8 @@ import {
   IconSearch,
   IconSettings,
   IconUsers,
-  IconBrandProducthunt
+  IconBrandProducthunt,
+  IconForms
 } from "@tabler/icons-react"
 
 import { NavDocuments } from "@/app/dashboard/_components/nav-documents"
@@ -57,9 +58,9 @@ const data = {
       icon: IconBrandProducthunt,
     },
     {
-      title: "تحلیل",
-      url: "#",
-      icon: IconChartBar,
+      title: "فرم",
+      url: "/dashboard/forms",
+      icon: IconForms,
     },
     {
       title: "طرحها",

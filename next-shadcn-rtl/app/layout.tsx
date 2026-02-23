@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import localFont from 'next/font/local'
 import { TooltipProvider } from '@/components/ui/tooltip';
 import { ThemeProvider } from "@/components/theme-provider";
+import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
 
- 
+
 const vazirMatn = localFont({
   src: './fonts/webfonts/Vazirmatn[wght].woff2',
   weight: '100 900',
-  variable: '--font-sans',  
+  variable: '--font-sans',
 })
 
 export const metadata: Metadata = {
@@ -24,14 +25,17 @@ export default function RootLayout({
   return (
     <html lang="fa" dir="rtl">
       <body className={`${vazirMatn.className} antialiased h-full`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <TooltipProvider>{children}</TooltipProvider>
-        </ThemeProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <TooltipProvider>
+              {children}
+              <Toaster />
+            </TooltipProvider>
+          </ThemeProvider>
       </body>
     </html>
   );

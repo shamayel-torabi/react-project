@@ -9,40 +9,54 @@ import {
     DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog"
+import { 
+    Card, 
+    CardContent, 
+    CardHeader, 
+    CardTitle 
+} from "@/components/ui/card";
+
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 
 export function DialogCloseButton() {
     return (
-        <Dialog>
-            <DialogTrigger asChild>
-                <Button variant="outline">اشتراک</Button>
-            </DialogTrigger>
-            <DialogContent className="sm:max-w-md">
-                <DialogHeader>
-                    <DialogTitle>اشتراک پیوند</DialogTitle>
-                    <DialogDescription>
-                        هر کس که به این پیوند دسترسی داشته باشد می تواند وارد سایت شود.
-                    </DialogDescription>
-                </DialogHeader>
-                <div className="flex items-center gap-2">
-                    <div className="grid flex-1 gap-2">
-                        <Label htmlFor="link" className="sr-only">
-                            پیوند
-                        </Label>
-                        <Input
-                            id="link"
-                            defaultValue="https://ui.shadcn.com/docs/installation"
-                            readOnly
-                        />
-                    </div>
-                </div>
-                <DialogFooter className="sm:justify-end">
-                    <DialogClose asChild>
-                        <Button type="button">بستن</Button>
-                    </DialogClose>
-                </DialogFooter>
-            </DialogContent>
-        </Dialog>
+        <Card className="@container/card ">
+            <CardHeader>
+                <CardTitle>آزمایش دیالوگ</CardTitle>
+            </CardHeader>
+            <CardContent className="px-2 pt-4 sm:px-6 sm:pt-6 flex gap-5">
+                <Dialog>
+                    <DialogTrigger asChild>
+                        <Button variant="outline">نمایش دیالوگ</Button>
+                    </DialogTrigger>
+                    <DialogContent className="sm:max-w-md">
+                        <DialogHeader>
+                            <DialogTitle>اشتراک پیوند</DialogTitle>
+                            <DialogDescription>
+                                هر کس که به این پیوند دسترسی داشته باشد می تواند وارد سایت شود.
+                            </DialogDescription>
+                        </DialogHeader>
+                        <div className="flex items-center gap-2">
+                            <div className="grid flex-1 gap-2">
+                                <Label htmlFor="link" className="sr-only">
+                                    پیوند
+                                </Label>
+                                <Input
+                                    id="link"
+                                    defaultValue="https://ui.shadcn.com/docs/installation"
+                                    readOnly
+                                />
+                            </div>
+                        </div>
+                        <DialogFooter className="sm:justify-end">
+                            <DialogClose asChild>
+                                <Button type="button">بستن</Button>
+                            </DialogClose>
+                        </DialogFooter>
+                    </DialogContent>
+                </Dialog>
+            </CardContent>
+        </Card>
     )
 }

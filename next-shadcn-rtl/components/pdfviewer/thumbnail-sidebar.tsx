@@ -12,7 +12,7 @@ export const ThumbnailsSidebar = ({ documentId, onClose }: Props) => {
   const { state, provides } = useScroll(documentId);
 
   return (
-    <div className="h-full w-48 flex flex-col">
+    <div className="h-full w-36 flex flex-col">
       <div className="flex-1 overflow-hidden">
         <ThumbnailsPane documentId={documentId} style={{ width: '100%', height: '100%' }}>
           {(m) => (
