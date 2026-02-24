@@ -16,6 +16,17 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     Credentials({
       name: "Credentials",
       id: "credentials",
+      credentials: {
+        email: { label: "Email", type: "email" },
+        password: { label: "Password", type: "password" }
+        // username: { label: "Username" },
+        // password: { label: "Password", type: "password" }
+
+        // this define the properties like label, type etc. if you
+        // dont want to make a custom login page yourself and instead use
+        // use the one provided by the auth-js one
+      
+      },
       async authorize(credentials) {
         const parsedCredentials = formSchema.safeParse(credentials);
 

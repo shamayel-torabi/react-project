@@ -1,14 +1,14 @@
 import type { NextAuthConfig } from "next-auth";
 
-declare module "next-auth" {
-  interface Session {
-    accessToken?: string;
-  }
+// declare module "next-auth" {
+//   interface Session {
+//     accessToken?: string;
+//   }
 
-  interface JWT {
-    accessToken?: string;
-  }
-}
+//   interface JWT {
+//     accessToken?: string;
+//   }
+// }
 
 export const authConfig = {
   pages: {
@@ -21,9 +21,7 @@ export const authConfig = {
       if (isOnDashboard) {
         if (isLoggedIn) return true;
         return false; // Redirect unauthenticated users to login page
-      } else if (isLoggedIn) {
-        return Response.redirect(new URL("/dashboard", nextUrl));
-      }
+      } 
       return true;
     },
   },
