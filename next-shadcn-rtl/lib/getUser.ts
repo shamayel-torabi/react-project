@@ -5,8 +5,8 @@ interface IUserWithPassword extends IUser {
 }
 
 const users: IUserWithPassword[] = [
-    { id: "1", name: "شمایل ترابی", email: "sh-torabi@hrec.co.ir", image: "", password: "sham", role: "Admin" },
-    { id: "2", name: "سکینه ترابی", email: "sk-torabi@hrec.co.ir", image: "", password: "sknh", role: "User" },
+    { id: "1", name: "شمایل ترابی", email: "sh-torabi@hrec.co.ir", image: "/avatars/shadcn.jpg", password: "sham", role: "Admin" },
+    { id: "2", name: "سکینه ترابی", email: "sk-torabi@hrec.co.ir", image: "/avatars/shadcn.jpg", password: "sknh", role: "User" },
 ]
 
 export const getUser = async (email: string): Promise<IUserWithPassword | null> => {
@@ -19,7 +19,7 @@ export const getUser = async (email: string): Promise<IUserWithPassword | null> 
             }
             else
                 reject(null)
-        }, 300);
+        }, 100);
     });
 
     return myPromise;

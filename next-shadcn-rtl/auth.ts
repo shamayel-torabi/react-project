@@ -1,8 +1,7 @@
-import NextAuth from "next-auth";
+import NextAuth, { User } from "next-auth";
 import { authConfig } from "./auth.config";
 import Credentials from "next-auth/providers/credentials";
 import { getUser } from "./lib/getUser";
-import { IUser } from "./types/types";
 import { z } from "zod";
 
 const formSchema = z.object({
@@ -35,12 +34,12 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
           const user = await getUser(email);
 
           if (user && user.password == password) {
-            const u: IUser = {
+            const u: User = {
               id: user.id,
               name: user.name,
               email: user.email,
               image: user.image,
-              role: user.role,
+              role: user.role,            
             };
             return u;
           }
