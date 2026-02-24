@@ -3,7 +3,7 @@
 import { createPluginRegistration } from '@embedpdf/core'
 import { EmbedPDF } from '@embedpdf/core/react'
 import { usePdfiumEngine } from '@embedpdf/engines/react'
-import { useMemo, useState } from 'react'
+import { CSSProperties, useMemo, useState } from 'react'
 import {
   Viewport,
   ViewportPluginPackage,
@@ -60,13 +60,13 @@ export const PDFViewer = ({url}: Props) => {
   )
 
   if (error) {
-    return <div>Error: {error.message}</div>;
+    return <div>خطا: {error.message}</div>;
   }
 
   if (isLoading || !engine) {
     return (
-      <div className="overflow-hidden rounded-lg border border-gray-300 bg-white dark:border-gray-700 dark:bg-gray-900">
-        <div className="flex items-center justify-center">
+      <div className="overflow-hidden h-[calc(100vh-7rem)] rounded-lg border border-gray-300 bg-white dark:border-gray-700 dark:bg-gray-900">
+        <div className="flex items-center justify-center h-full">
           <div className="flex  items-center gap-2 text-gray-500 dark:text-gray-400">
             <Loader2 size={20} className="animate-spin" />
             <span className="text-sm">بار گذاری موتور ...</span>
@@ -76,9 +76,8 @@ export const PDFViewer = ({url}: Props) => {
     )
   }
 
-  
   return (
-    <div className="overflow-hidden h-[calc(100vh-7rem)] flex select-none flex-col p-0 rounded-lg border border-gray-300 bg-white shadow-sm dark:border-gray-700 dark:bg-gray-900">
+    <div className="overflow-hidden h-[calc(100vh-7rem)] flex flex-col select-none p-0 rounded-lg border border-gray-300 bg-white shadow-sm dark:border-gray-700 dark:bg-gray-900">
       <EmbedPDF engine={engine} plugins={plugins} onInitialized={async (registry) => {
         // Load default PDF URL on initialization
         const document = await registry
