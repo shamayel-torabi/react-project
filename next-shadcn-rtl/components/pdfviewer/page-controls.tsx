@@ -1,7 +1,8 @@
 import { useViewportCapability } from '@embedpdf/plugin-viewport/react';
 import { useScroll } from '@embedpdf/plugin-scroll/react';
 import { useEffect, useRef, useState, useCallback } from 'react';
-import { ChevronLeftIcon, ChevronRightIcon } from './icons';
+import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react';
+//import { ChevronLeftIcon, ChevronRightIcon } from './components/icons';
 
 type PageControlsProps = {
   documentId: string;

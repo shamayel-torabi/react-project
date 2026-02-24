@@ -38,7 +38,7 @@ import { LoadingSpinner } from './components/loading-spinner';
 import { DocumentPasswordPrompt } from './components/document-password-prompt';
 import { SearchSidebar } from './components/search-sidebar';
 import { ThumbnailsSidebar } from './components/thumbnails-sidebar';
-import { PageControls } from './components/page-controls';
+import { PageControls } from './page-controls';
 import { ConsoleLogger } from '@embedpdf/models';
 import { SplitViewLayout } from './components/split-view-layout';
 import { AnnotationSelectionMenu } from './components/annotation-selection-menu';

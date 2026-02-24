@@ -3,7 +3,7 @@
 import { createPluginRegistration } from '@embedpdf/core'
 import { EmbedPDF } from '@embedpdf/core/react'
 import { usePdfiumEngine } from '@embedpdf/engines/react'
-import { useMemo, useState } from 'react'
+import { useMemo } from 'react'
 import {
   Viewport,
   ViewportPluginPackage,
@@ -17,27 +17,74 @@ import {
 import { RenderLayer, RenderPluginPackage } from '@embedpdf/plugin-render/react'
 import { TilingLayer, TilingPluginPackage } from '@embedpdf/plugin-tiling/react'
 import {
+  useZoom,
   ZoomPluginPackage,
   ZoomMode,
 } from '@embedpdf/plugin-zoom/react'
-import { ThumbnailPluginPackage } from '@embedpdf/plugin-thumbnail/react';
-
-import { Loader2 } from 'lucide-react'
+import { Loader2, ZoomIn, ZoomOut, RotateCcw } from 'lucide-react'
 import { ViewManagerPlugin } from '@embedpdf/plugin-view-manager/react'
-import { PageControls } from './components/page-controls'
-import Toolbar from './toolbar'
-import { ThumbnailsSidebar } from './thumbnail-sidebar'
 
-type Props = {
-  url: string;
+interface ZoomToolbarProps {
+  documentId: string
 }
 
-export const PDFViewer = ({ url }: Props) => {
-  const { engine, isLoading } = usePdfiumEngine();
-  const [sidebarStates, setSidebarStates] = useState<boolean>(false);
+const ZoomToolbar = ({ documentId }: ZoomToolbarProps) => {
+  const { provides: zoom, state } = useZoom(documentId)
 
-  const plugins = useMemo(() => {
-    return [
+  if (!zoom) return null
+
+  const zoomPercentage = Math.round(state.currentZoomLevel * 100)
+
+  return (
+    <div className="flex flex-wrap items-center gap-3 border-b border-gray-300 bg-gray-100 px-3 py-2 dark:border-gray-700 dark:bg-gray-800">
+      <span className="tracking-wide text-xs font-medium uppercase text-gray-600 dark:text-gray-300">
+        Zoom
+      </span>
+      <div className="h-4 w-px bg-gray-300 dark:bg-gray-600" />
+
+      {/* Zoom controls */}
+      <div className="flex items-center gap-1.5">
+        <button
+          onClick={zoom.zoomOut}
+          className="inline-flex h-8 w-8 items-center justify-center rounded-md bg-white text-gray-600 shadow-sm ring-1 ring-gray-300 transition-all hover:bg-gray-50 hover:text-gray-900 dark:bg-gray-700 dark:text-gray-300 dark:ring-gray-600 dark:hover:bg-gray-600 dark:hover:text-gray-100"
+          title="Zoom Out"
+        >
+          <ZoomOut size={16} />
+        </button>
+
+        {/* Zoom level indicator */}
+        <div className="min-w-[56px] rounded-md bg-white px-2 py-1 text-center shadow-sm ring-1 ring-gray-300 dark:bg-gray-700 dark:ring-gray-600">
+          <span className="font-mono text-sm font-medium text-gray-700 dark:text-gray-200">
+            {zoomPercentage}%
+          </span>
+        </div>
+
+        <button
+          onClick={zoom.zoomIn}
+          className="inline-flex h-8 w-8 items-center justify-center rounded-md bg-white text-gray-600 shadow-sm ring-1 ring-gray-300 transition-all hover:bg-gray-50 hover:text-gray-900 dark:bg-gray-700 dark:text-gray-300 dark:ring-gray-600 dark:hover:bg-gray-600 dark:hover:text-gray-100"
+          title="Zoom In"
+        >
+          <ZoomIn size={16} />
+        </button>
+
+        <button
+          onClick={() => zoom.requestZoom(ZoomMode.FitPage)}
+          className="ml-1 inline-flex items-center gap-1.5 rounded-md bg-white px-2.5 py-1.5 text-xs font-medium text-gray-600 shadow-sm ring-1 ring-gray-300 transition-all hover:bg-gray-50 hover:text-gray-900 dark:bg-gray-700 dark:text-gray-300 dark:ring-gray-600 dark:hover:bg-gray-600 dark:hover:text-gray-100"
+          title="Reset Zoom to Fit Page"
+        >
+          <RotateCcw size={14} />
+          <span className="hidden sm:inline">Reset</span>
+        </button>
+      </div>
+    </div>
+  )
+}
+
+export const PDFViewer = () => {
+  const { engine, isLoading } = usePdfiumEngine()
+
+  const plugins = useMemo(
+    () => [
       createPluginRegistration(DocumentManagerPluginPackage),
       createPluginRegistration(ViewportPluginPackage),
       createPluginRegistration(ScrollPluginPackage),
@@ -46,56 +93,46 @@ export const PDFViewer = ({ url }: Props) => {
       createPluginRegistration(ZoomPluginPackage, {
         defaultZoomLevel: ZoomMode.FitPage,
       }),
-      createPluginRegistration(ThumbnailPluginPackage, {
-        width: 120,
-        paddingY: 10,
-      }),
-    ]
-  }, [])
+    ],
+    [],
+  )
 
   if (isLoading || !engine) {
     return (
       <div className="overflow-hidden rounded-lg border border-gray-300 bg-white dark:border-gray-700 dark:bg-gray-900">
-        <div className="flex  h-[calc(100vh-8rem)] items-center justify-center">
+        <div className="flex h-[400px] items-center justify-center">
           <div className="flex items-center gap-2 text-gray-500 dark:text-gray-400">
-            <Loader2 size={48} className="animate-spin" />
+            <Loader2 size={20} className="animate-spin" />
+            <span className="text-sm">Loading PDF Engine...</span>
           </div>
         </div>
       </div>
     )
   }
 
-
-  const toggleSidebar = () => {
-    setSidebarStates((prev) => !prev);
-  };
-
   return (
-    <EmbedPDF
-      engine={engine}
-      plugins={plugins}
-      onInitialized={async (registry) => {
-        // Load default PDF URL on initialization
-        const document = await registry
-          ?.getPlugin<DocumentManagerPlugin>(DocumentManagerPlugin.id)
-          ?.provides()
-          ?.openDocumentUrl({ url })
-          .toPromise();
+    <EmbedPDF engine={engine} plugins={plugins} onInitialized={async (registry) => {
+      // Load default PDF URL on initialization
+      const document = await registry
+        ?.getPlugin<DocumentManagerPlugin>(DocumentManagerPlugin.id)
+        ?.provides()
+        ?.openDocumentUrl({ url: '/ebook.pdf' })
+        .toPromise();
 
-        if (!document) return;
+      if (!document) return;
 
-        const viewManager = registry
-          ?.getPlugin<ViewManagerPlugin>(ViewManagerPlugin.id)
-          ?.provides();
-        if (!viewManager) return;
+      const viewManager = registry
+        ?.getPlugin<ViewManagerPlugin>(ViewManagerPlugin.id)
+        ?.provides();
+      if (!viewManager) return;
 
-        const views = viewManager.getAllViews();
-        if (views.length > 0 && views[0]) {
-          const firstViewId = views[0].id;
-          viewManager.addDocumentToView(firstViewId, document.documentId);
-          viewManager.setViewActiveDocument(firstViewId, document.documentId);
-        }
-      }}
+      const views = viewManager.getAllViews();
+      if (views.length > 0 && views[0]) {
+        const firstViewId = views[0].id;
+        viewManager.addDocumentToView(firstViewId, document.documentId);
+        viewManager.setViewActiveDocument(firstViewId, document.documentId);
+      }
+    }}
     >
       {({ activeDocumentId }) =>
         activeDocumentId && (
@@ -104,21 +141,13 @@ export const PDFViewer = ({ url }: Props) => {
               isLoaded && (
                 <div className="overflow-hidden rounded-lg border border-gray-300 bg-white shadow-sm dark:border-gray-700 dark:bg-gray-900">
                   {/* Toolbar */}
-                  <Toolbar
-                    documentId={activeDocumentId}
-                    onToggleThumbnails={toggleSidebar} />
-                  {/* PDF Viewer Area */}
-                  <div className="relative flex h-[calc(100vh-8.5rem)] md:h-[calc(100vh-10.5rem)]">
-                    {
-                      sidebarStates && <ThumbnailsSidebar
-                        documentId={activeDocumentId}
-                        onClose={() => toggleSidebar()}
-                      />
-                    }
+                  <ZoomToolbar documentId={activeDocumentId} />
 
+                  {/* PDF Viewer Area */}
+                  <div className="relative h-[400px] sm:h-[500px]">
                     <Viewport
                       documentId={activeDocumentId}
-                      className="flex-1 bg-gray-200 dark:bg-gray-800"
+                      className="absolute inset-0 bg-gray-200 dark:bg-gray-800"
                     >
                       <Scroller
                         documentId={activeDocumentId}
@@ -142,7 +171,6 @@ export const PDFViewer = ({ url }: Props) => {
                         )}
                       />
                     </Viewport>
-                    <PageControls documentId={activeDocumentId} />
                   </div>
                 </div>
               )
