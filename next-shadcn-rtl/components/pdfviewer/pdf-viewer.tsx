@@ -28,7 +28,11 @@ import { ThumbnailsSidebar } from './thumbnail-sidebar'
 import { ThumbnailPluginPackage } from '@embedpdf/plugin-thumbnail/react'
 import { PageControls } from './page-controls'
 
-export const PDFViewer = () => {
+type Props = {
+  url: string
+}
+
+export const PDFViewer = ({url}: Props) => {
   const { engine, isLoading, error } = usePdfiumEngine();
   const [showThmbnail, setShowThumbnail] = useState(false);
 
@@ -63,7 +67,7 @@ export const PDFViewer = () => {
     return (
       <div className="overflow-hidden rounded-lg border border-gray-300 bg-white dark:border-gray-700 dark:bg-gray-900">
         <div className="flex items-center justify-center">
-          <div className="flex h-[calc(100vh-7rem)] items-center gap-2 text-gray-500 dark:text-gray-400">
+          <div className="flex  items-center gap-2 text-gray-500 dark:text-gray-400">
             <Loader2 size={20} className="animate-spin" />
             <span className="text-sm">بار گذاری موتور ...</span>
           </div>
@@ -72,6 +76,7 @@ export const PDFViewer = () => {
     )
   }
 
+  
   return (
     <div className="overflow-hidden h-[calc(100vh-7rem)] flex select-none flex-col p-0 rounded-lg border border-gray-300 bg-white shadow-sm dark:border-gray-700 dark:bg-gray-900">
       <EmbedPDF engine={engine} plugins={plugins} onInitialized={async (registry) => {
@@ -79,7 +84,7 @@ export const PDFViewer = () => {
         const document = await registry
           ?.getPlugin<DocumentManagerPlugin>(DocumentManagerPlugin.id)
           ?.provides()
-          ?.openDocumentUrl({ url: '/ebook.pdf' })
+          ?.openDocumentUrl({ url })
           .toPromise();
 
         if (!document) return;
@@ -124,7 +129,9 @@ export const PDFViewer = () => {
                               </div>
                             )}
                             {isError && (
-                              <p>خطای بارگذاری سند</p> 
+                              <div className="flex h-full items-center justify-center">
+                                <p>خطای بارگذاری سند</p> 
+                              </div>
                             )}
                             {
                               isLoaded && <Viewport

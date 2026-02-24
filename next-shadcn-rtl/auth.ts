@@ -1,9 +1,9 @@
 import NextAuth from "next-auth";
 import { authConfig } from "./auth.config";
 import Credentials from "next-auth/providers/credentials";
-import { z } from "zod";
 import { getUser } from "./lib/getUser";
 import { IUser } from "./types/types";
+import { z } from "zod";
 
 const formSchema = z.object({
   email: z.email(),
