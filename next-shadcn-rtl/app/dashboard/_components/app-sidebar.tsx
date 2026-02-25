@@ -59,13 +59,13 @@ const data = {
       icon: IconForms,
     },
     {
-      title: "طرحها",
-      url: "#",
+      title: "آزمایش api",
+      url: "/dashboard/api-example",
       icon: IconFolder,
     },
     {
-      title: "تیم",
-      url: "#",
+      title: "اطلاعات کاربر",
+      url: "/dashboard/session-info",
       icon: IconUsers,
     },
   ],

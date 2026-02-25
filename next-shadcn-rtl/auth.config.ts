@@ -4,18 +4,14 @@ export const authConfig = {
   pages: {
     signIn: "/login",
   },
-  session: {
-    strategy: "jwt",
-  },
+  // session: {
+  //   strategy: "jwt",
+  // },
   callbacks: {
     authorized({ auth, request: { nextUrl } }) {
       const isLoggedIn = !!auth?.user;
       const isOnDashboard = nextUrl.pathname.startsWith("/dashboard");
-      if (isOnDashboard) {
-        if (isLoggedIn)
-          return true;
-        else return false;
-      }
+      if (isOnDashboard) return isLoggedIn;
       return true;
     },
     jwt({ token, account, user }) {
@@ -25,11 +21,17 @@ export const authConfig = {
         token.name = user.name;
         token.picture = user.image;
       }
-      console.log("access_token:", account?.access_token);
+
+      console.log('account:', account)
+
+      if(account?.access_token) 
+        token.accessToken =  account?.access_token;
+      else
+        token.accessToken = "token"
 
       return token;
     },
-    async session({ session, token }) {
+    session({ session, token }) {
       if (session.user) {
         session.user.id = token.sub as string;
         session.user.email = token.email as string;
@@ -37,7 +39,7 @@ export const authConfig = {
         session.user.image = token.picture as string;
         session.user.role = token.role as string;
       }
-      if (token?.accessToken) session.accessToken = token.accessToken as string;
+      session.accessToken = token.accessToken as string;
 
       return session;
     },

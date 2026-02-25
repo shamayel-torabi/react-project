@@ -34,14 +34,14 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
           const user = await getUser(email);
 
           if (user && user.password == password) {
-            const u: User = {
+            const currentUser: User = {
               id: user.id,
               name: user.name,
               email: user.email,
               image: user.image,
               role: user.role,            
             };
-            return u;
+            return currentUser;
           }
         }
 

@@ -20,8 +20,6 @@ export function LoginForm() {
   const callbackUrl = searchParams.get('callbackUrl') || '/dashboard';
   const [errorMessage, formAction, isPending] = useActionState(login, undefined,);
 
-  if (errorMessage)
-    return <p>{errorMessage}</p>
   return (
     <div className="flex flex-col gap-6">
       <Card className="overflow-hidden p-0">
