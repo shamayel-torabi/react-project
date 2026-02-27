@@ -22,7 +22,7 @@ export const authConfig = {
         token.picture = user.image;
       }
 
-      console.log('account:', account)
+      //console.log('account:', account)
 
       if(account?.access_token) 
         token.accessToken =  account?.access_token;

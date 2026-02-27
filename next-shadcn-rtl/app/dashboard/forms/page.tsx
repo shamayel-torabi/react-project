@@ -14,7 +14,7 @@ export default function LifeCyclePage() {
                     <BugReportForm />
                 </div>
                 <div>
-                    <FormTanstackComplex/>
+                    <FormTanstackComplex />
                 </div>
                 <div className="flex gap-4">
                     <FormTanstackCheckbox />

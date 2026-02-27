@@ -59,6 +59,11 @@ const data = {
       icon: IconForms,
     },
     {
+      title: "ارسال فرم",
+      url: "/dashboard/form-submit",
+      icon: IconForms,
+    },
+    {
       title: "آزمایش api",
       url: "/dashboard/api-example",
       icon: IconFolder,
@@ -154,9 +159,9 @@ const data = {
 }
 
 type Props = React.ComponentProps<typeof Sidebar> & {
-  session:  Session | null
+  session: Session | null
 }
-export function AppSidebar({session, ...props }: Props) {
+export function AppSidebar({ session, ...props }: Props) {
   return (
     <Sidebar collapsible="offcanvas" {...props}>
       <SidebarHeader>
