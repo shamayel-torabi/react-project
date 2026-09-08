@@ -80,7 +80,7 @@ export default function HeroSection() {
                 <ArrowLeftIcon className='size-5' />
             </button>
 
-            <div className="text-gray-400 bg-gradient-to-b from-indigo-600/50 to-gray-300/50 p-px rounded-[7px] mt-8">
+            <div className="text-gray-400 dark:text-gray-800 bg-linear-to-b from-indigo-600/50 to-gray-300/50 p-px rounded-[7px] mt-8">
                 <div className="flex items-center gap-2 bg-white rounded-md px-4 py-3">
                     $ <span>{installCommand}</span>
                     <button onClick={handleCopy} className="cursor-pointer ml-2">
@@ -88,7 +88,7 @@ export default function HeroSection() {
                     </button>
                 </div>
             </div>
-            <p className="py-6 text-slate-600 mt-14">مورد تائید برندهای معتبر </p>
+            <p className="py-6 text-slate-600 dark:text-slate-200 mt-14">مورد تائید برندهای معتبر </p>
 
             <div className="flex flex-wrap justify-between max-sm:justify-center gap-10 max-w-4xl w-full mx-auto py-4" id="logo-container">
                 {logos.map((logo, index) => <img key={index} src={logo} alt="logo" className="h-7 w-auto max-w-xs" />)}

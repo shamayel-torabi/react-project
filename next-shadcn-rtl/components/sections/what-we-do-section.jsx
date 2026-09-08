@@ -1,4 +1,4 @@
-import { ArrowRightIcon } from "lucide-react";
+import {ArrowLeftIcon } from "lucide-react";
 
 export default function WhatWeDoSection() {
     return (
@@ -25,17 +25,17 @@ export default function WhatWeDoSection() {
                 </div>
             </div>
             <div className="text-sm text-slate-600 max-w-md">
-                <h1 className="text-xl uppercase font-semibold text-slate-700">آنچه ما انجام خواهیم داد؟</h1>
-                <div className="w-24 h-[3px] rounded-full bg-gradient-to-r from-indigo-600 to-[#DDD9FF]"></div>
+                <h1 className="text-xl uppercase font-semibold text-slate-700 dark:text-slate-200">آنچه ما انجام خواهیم داد؟</h1>
+                <div className="w-24 h-[3px] rounded-full bg-linear-to-r from-indigo-600 to-[#DDD9FF]"></div>
                 <p className="mt-8">PrebuiltUI helps you build faster by transforming your design vision into fully functional,
                     production-ready UI components. </p>
                 <p className="mt-4">Whether you're launching a SaaS app, landing page, or dashboard, our collection of Tailwind
                     CSS components is crafted to boost your development speed and improve user experience.</p>
                 <p className="mt-4">From UI design systems to automation-ready layouts, PrebuiltUI empowers you to build
                     beautifully and scale effortlessly.</p>
-                <button className="flex item-end gap-2 mt-8 hover:opacity-90 transition btn py-3 px-8 rounded-full text-white">
-                    <span>Read more</span>
-                    <ArrowRightIcon className='size-5' />
+                <button className="flex item-start gap-2 mt-8 hover:opacity-90 transition btn py-3 px-8 rounded-full text-white">
+                    <span>مطالعه بیشتر</span>
+                    <ArrowLeftIcon className='size-5' />
                 </button>
             </div>
         </section>
