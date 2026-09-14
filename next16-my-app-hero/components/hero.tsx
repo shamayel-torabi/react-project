@@ -4,12 +4,12 @@ import { useEffect, useState } from "react";
 
 const bgImages: string[] = [
   "/images/bokhon.jpg",
-  "/images/IMG_01.jpg",
-  "/images/IMG_02.jpg",
-  "/images/IMG_03.jpg",
-  "/images/IMG_04.jpg",
-  "/images/IMG_05.jpg",
-  "/images/IMG_06.jpg",
+  "/images/IMG_01.jpeg",
+  "/images/IMG_02.jpeg",
+  "/images/IMG_03.jpeg",
+  "/images/IMG_04.jpeg",
+  "/images/IMG_05.jpeg",
+  "/images/IMG_06.jpeg",
 ]
 
 export function Hero() {
@@ -17,7 +17,7 @@ export function Hero() {
 
   useEffect(() => {
     const t = setInterval(() => {
-      setCurrentImage(prev => (prev + 1) % 3);
+      setCurrentImage(prev => (prev + 1) % bgImages.length);
     }, 5000);
 
     return () => {
@@ -32,9 +32,9 @@ export function Hero() {
 
   return (
     <div style={bg} className={`grid grid-cols-6 grid-rows-7 w-full min-h-[calc(100vh-4rem)] bg-cover bg-top-left`} >
-      <div className="row-start-2 row-end-6 col-start-2 col-span-5 flex justify-end">
+      {/* <div className="row-start-2 row-end-6 col-start-2 col-span-5 flex justify-end">
         <img src="/globe.svg" className="h-[calc((100vh-4rem)*4/6)] object-cover" alt="test" />
-      </div>
+      </div> */}
       <div className="bg-linear-to-r from-transparent to-white row-start-1 row-span-7 col-start-1 col-span-6"></div>
       <div className="row-start-2 row-end-3 col-start-1 col-end-3">
         <p className="text-clamp text-blue-500 px-4">شماره تصویر{currentImage}</p>
