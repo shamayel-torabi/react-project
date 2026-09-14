@@ -4,8 +4,12 @@ import { useEffect, useState } from "react";
 
 const bgImages: string[] = [
   "/images/bokhon.jpg",
-  "/images/b01.jpg",
-  "/images/b02.jpg"
+  "/images/IMG_01.jpg",
+  "/images/IMG_02.jpg",
+  "/images/IMG_03.jpg",
+  "/images/IMG_04.jpg",
+  "/images/IMG_05.jpg",
+  "/images/IMG_06.jpg",
 ]
 
 export function Hero() {
