@@ -18,7 +18,9 @@ export default function PublicLayout({
         <div className="flex flex-col h-screen overflow-hidden">
             <div className="overflow-y-auto">
                 <Navbar />
-                {children}
+                <main className="min-h-[calc(100vh-32.9rem)]">
+                    {children}
+                </main>
                 <Footer />
             </div>
         </div>
