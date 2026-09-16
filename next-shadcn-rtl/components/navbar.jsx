@@ -4,6 +4,7 @@ import { MenuIcon, XIcon, ChevronDown, FileTextIcon, ImageUpIcon, FileVideo, Aud
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
+import { ThemeToggle } from './theme-toggle';
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -27,8 +28,8 @@ export default function Navbar() {
     ];
 
     return (
-        <>
-            <nav className='sticky top-0 z-50 flex w-full items-center justify-between dark:bg-white/10 bg-black/10 px-4 py-3.5 backdrop-blur-md md:px-16 lg:px-10'>
+        <header>
+            <nav className='sticky top-0 z-50 flex w-full items-center justify-between dark:bg-white/10 bg-black/10 px-4 py-3.5 backdrop-blur-md md:px-16 lg:px-8'>
                 <Link href="/">
                     <Image src='/assets/logo.svg' alt='logo' className='h-8.5 w-auto' width={205} height={48} />
                 </Link>
@@ -36,7 +37,7 @@ export default function Navbar() {
                 <div className='hidden items-center space-x-7 text-gray-800 dark:text-gray-200 md:flex'>
                     {links.map((link) => link.subLinks ? (
                         <div key={link.name} className='group relative' onMouseEnter={() => setOpenDropdown(link.name)} onMouseLeave={() => setOpenDropdown(null)}>
-                            <div className='flex cursor-pointer items-center gap-1 hover:text-black'>
+                            <div className='flex cursor-pointer items-center gap-1 hover:opacity-60'>
                                 {link.name}
                                 <ChevronDown className={`mt-px size-4 transition-transform duration-200 ${openDropdown === link.name ? 'rotate-180' : ''}`} />
                             </div>
@@ -45,9 +46,9 @@ export default function Navbar() {
                                 <p>کاوش در ابزار هوش مصنوعی</p>
                                 <div className='mt-3 grid grid-cols-2 gap-2'>
                                     {link.subLinks.map((sub) => (
-                                        <Link href={sub.href} key={sub.name} className='group/link flex items-center gap-2 rounded-md p-2 transition hover:bg-gray-100 dark:hover:bg-gray-900'>
+                                        <Link href={sub.href} key={sub.name} className='group/link flex items-center gap-2 rounded-md p-2 transition hover:opacity-60 dark:hover:bg-gray-700'>
                                             <div className='w-max gap-1 rounded-md btn p-2'>
-                                                <sub.icon className='size-4.5 text-gray-800 transition duration-300 group-hover/link:scale-110' />
+                                                <sub.icon className='size-4.5 text-gray-900 transition duration-300 group-hover/link:scale-110' />
                                             </div>
                                             <div>
                                                 <p className='font-medium'>{sub.name}</p>
@@ -59,34 +60,35 @@ export default function Navbar() {
                             </div>
                         </div>
                     ) : (
-                        <Link key={link.name} href={link.href} className='transition hover:text-black'>
+                        <Link key={link.name} href={link.href} className='transition hover:opacity-60'>
                             {link.name}
                         </Link>
                     ))}
                 </div>
 
-                <Link href='/login' className='hidden rounded-full btn px-8 py-2.5 font-medium text-gray-800 dark:text-gray-200 transition hover:opacity-90 md:inline-block'>
+                <Link href='/login' className='hidden rounded-full btn px-8 py-2.5 font-medium text-gray-800 dark:text-gray-200 transition hover:opacity-60 md:inline-block'>
                     ورود
                 </Link>
+                <ThemeToggle/>
 
                 <button onClick={() => setIsOpen(true)} className='transition active:scale-90 md:hidden'>
                     <MenuIcon className='size-6.5' />
                 </button>
             </nav>
 
-            <div className={`fixed inset-0 z-50 flex flex-col items-center justify-center gap-6 bg-white/20 text-lg font-medium backdrop-blur-2xl transition duration-300 md:hidden ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+            <div className={`fixed inset-0 z-50 flex flex-col items-center justify-center gap-6 bg-white/20 dark:bg-black/20 text-lg font-medium backdrop-blur-2xl transition duration-300 md:hidden ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}>
                 {links.map((link) => (
                     <div key={link.name} className='text-center'>
                         {link.subLinks ? (
                             <>
-                                <button onClick={() => setOpenDropdown(openDropdown === link.name ? null : link.name)} className='flex items-center justify-center gap-1 text-gray-800 dark:bg-gray-200'>
+                                <button onClick={() => setOpenDropdown(openDropdown === link.name ? null : link.name)} className='flex items-center justify-center gap-1 text-gray-800 dark:bg-gray-200 hover:opacity-60'>
                                     {link.name}
                                     <ChevronDown className={`size-4 transition-transform ${openDropdown === link.name ? 'rotate-180' : ''}`} />
                                 </button>
                                 {openDropdown === link.name && (
                                     <div className='mt-2 flex flex-col gap-2 text-left text-sm'>
                                         {link.subLinks.map((sub) => (
-                                            <Link key={sub.name} href={sub.href} className='block text-gray-200 transition hover:text-black' onClick={() => setIsOpen(false)}>
+                                            <Link key={sub.name} href={sub.href} className='block text-gray-800 dark:text-gray-200  transition hover:opacity-60' onClick={() => setIsOpen(false)}>
                                                 {sub.name}
                                             </Link>
                                         ))}
@@ -94,14 +96,14 @@ export default function Navbar() {
                                 )}
                             </>
                         ) : (
-                            <Link href={link.href} className='block text-gray-800 dark:text-gray-200 transition hover:text-black' onClick={() => setIsOpen(false)}>
+                            <Link href={link.href} className='block text-gray-800 dark:text-gray-200 transition hover:opacity-60' onClick={() => setIsOpen(false)}>
                                 {link.name}
                             </Link>
                         )}
                     </div>
                 ))}
 
-                <Link href='#!' className='rounded-full btn px-8 py-2.5 font-medium text-gray-200 transition hover:text-black' onClick={() => setIsOpen(false)}>
+                <Link href='#!' className='rounded-full btn px-8 py-2.5 font-medium text-gray-800 dark:text-gray-200 transition hover:opacity-60' onClick={() => setIsOpen(false)}>
                     ثبت نام
                 </Link>
 
@@ -109,6 +111,6 @@ export default function Navbar() {
                     <XIcon />
                 </button>
             </div>
-        </>
+        </header>
     );
 }

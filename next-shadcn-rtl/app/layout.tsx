@@ -4,6 +4,7 @@ import { TooltipProvider } from '@/components/ui/tooltip';
 import { Toaster } from "@/components/ui/sonner";
 import LenisScroll from '@/components/lenis-scroll';
 import "./globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
 
 
 const vazirMatn = localFont({
@@ -25,11 +26,13 @@ export default function RootLayout({
   return (
     <html lang="fa-IR" dir="rtl" className="light">
       <body className={`${vazirMatn.className} antialiased h-full`}>
+        <ThemeProvider>          
           <TooltipProvider>
             <LenisScroll />
             {children}
             <Toaster />
           </TooltipProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
