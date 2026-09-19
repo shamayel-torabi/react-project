@@ -1,6 +1,6 @@
 'use client';
 
-import SectionTitle from '@/components/section-title';
+import SectionTitle from './section-title';
 import { MinusIcon, PlusIcon } from 'lucide-react';
 import { useState } from 'react';
 
@@ -34,16 +34,16 @@ export default function FaqSection() {
     ];
 
     return (
-        <section className='flex flex-col items-center justify-center mt-40'>
-            <SectionTitle title="FAQ's" subtitle="Looking for answers to your frequently asked questions? Check out our FAQ's section below to find." />
+        <section id="faq" className='h-svh flex flex-col items-center justify-center pt-16'>
+            <SectionTitle title="سوالات متداول" subtitle="دنبال سوالات خود اینجا باش ؟ بخش سوالات زیر و پاسخ آن را در ذیل پیدا کن." />
             <div className='mx-auto mt-12 w-full max-w-xl'>
                 {data.map((item, index) => (
-                    <div key={index} className='flex flex-col border-b border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-800'>
+                    <div key={index} className='flex flex-col border-b border-gray-300 dark:border-gray-700 bg-gray-100 dark:bg-gray-800 px-4'>
                         <h3 className='flex cursor-pointer items-start justify-between gap-4 py-4 font-medium' onClick={() => setIsOpen(isOpen === index ? null : index)}>
                             {item.question}
-                            {isOpen === index ? <MinusIcon className='size-5 text-gray-500 dark:text-gray-100' /> : <PlusIcon className='size-5 text-gray-500' />}
+                            {isOpen === index ? <MinusIcon className='size-5 text-gray-500' /> : <PlusIcon className='size-5 text-gray-500' />}
                         </h3>
-                        <p className={`pb-4 text-sm/6 text-gray-500 dark:text-gray-100 ${isOpen === index ? 'block' : 'hidden'}`}>{item.answer}</p>
+                        <p className={`pb-4 text-sm/6 text-gray-500 ${isOpen === index ? 'block' : 'hidden'}`}>{item.answer}</p>
                     </div>
                 ))}
             </div>

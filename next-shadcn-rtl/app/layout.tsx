@@ -24,9 +24,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fa-IR" dir="rtl" className="light">
+    <html lang="fa-IR" dir="rtl" suppressHydrationWarning>
       <body className={`${vazirMatn.className} antialiased h-full`}>
-        <ThemeProvider>          
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          enableColorScheme
+          disableTransitionOnChange>
           <TooltipProvider>
             <LenisScroll />
             {children}

@@ -1,4 +1,4 @@
-import SectionTitle from "@/components/section-title";
+import SectionTitle from "./section-title";
 
 export default function OurLatestCreations() {
 
@@ -20,8 +20,8 @@ export default function OurLatestCreations() {
         },
     ];
     return (
-        <section className="flex flex-col items-center justify-center mt-40">
-            <SectionTitle title="Our Latest Creations" subtitle="A visual collection of our most recent works - each piece crafted with intention, emotion, and style." />
+        <section id="last_creation" className="min-h-svh flex flex-col items-center justify-center">
+            <SectionTitle title="آخرین دستاوردهای ما" subtitle="مجموعه ای از آخرین دستاوردهای ما -  هر بخش با ظرافت احساس و دقت ساخته شده است." />
             <div className="flex flex-wrap items-center justify-center gap-10 mt-16">
                 {data.map((item, index) => (
                     <div key={index} className="max-w-80 hover:-translate-y-0.5 transition duration-300">
