@@ -32,7 +32,7 @@ export default function Navbar() {
 
   return (
     <header className="shadow-2xl">
-      <nav className="sticky top-0 z-50 flex w-full items-center justify-between dark:bg-white/10 bg-black/10 px-4 py-3.5 backdrop-blur-md md:px-16 lg:px-8">
+      <nav className="sticky top-0 z-50 flex gap-4 w-full items-center justify-between dark:bg-white/10 bg-black/10 px-4 py-3.5 backdrop-blur-md lg:px-8">
         <Link href="/">
           <Image src="/assets/logo.svg" alt="logo" className="h-8.5 w-auto" width={205} height={48} />
         </Link>
@@ -75,17 +75,19 @@ export default function Navbar() {
               </Link>
             ),
           )}
-          <ThemeToggle />
-        </div>
-        <div className="hidden md:flex md:items-center">
-          <Link href="/login" className="rounded-full btn px-8 py-2.5 font-medium text-gray-800 dark:text-gray-200 transition hover:opacity-60">
-            ورود
-          </Link>
         </div>
 
-        <button onClick={() => setIsOpen(true)} className="transition active:scale-90 md:hidden">
-          <MenuIcon className="size-6.5" />
-        </button>
+        <div className="flex items-center gap-4">
+          <div className="hidden md:flex md:items-center">
+            <Link href="/login" className="rounded-full btn py-2.5 font-medium text-gray-800 dark:text-gray-200 transition hover:opacity-60">
+              ورود
+            </Link>
+          </div>
+          <ThemeToggle />
+          <button onClick={() => setIsOpen(true)} className="transition active:scale-90 md:hidden">
+            <MenuIcon className="size-6.5" />
+          </button>
+        </div>
       </nav>
 
       <div

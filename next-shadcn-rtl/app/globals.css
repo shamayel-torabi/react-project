@@ -7,6 +7,7 @@
 :root {
   --background: hsl(0 0% 97%);
   --foreground: hsl(218 36% 18%);
+  --background-1: hsl(0 0% 70%);
   --card: hsl(0 0% 100%);
   --card-foreground: hsl(218 36% 18%);
   --popover: hsl(0 0% 100%);
@@ -55,6 +56,7 @@
 
 .dark {
   --background: hsl(221 48% 11%);
+  --background-1: hsl(221 20% 20%);
   --foreground: hsl(215 27% 91%);
   --card: hsl(218 36% 18%);
   --card-foreground: hsl(215 27% 91%);
@@ -164,4 +166,3 @@
   .rdp-root {
   }
 }
-

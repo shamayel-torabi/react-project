@@ -3,7 +3,7 @@ import SectionTitle from "./section-title";
 
 export default function WhatWeDoSection() {
   return (
-    <section id="what_we_do" className="min-h-svh p-16">
+    <section id="what_we_do" className="min-h-svh flex flex-col items-center justify-center bg-white dark:bg-gray-800">
       <SectionTitle title="سوابق ما" />
       <div className="flex flex-col md:flex-row items-center justify-center gap-20">
         <div className="relative shadow-2xl shadow-indigo-600/40 rounded-2xl overflow-hidden shrink-0">
