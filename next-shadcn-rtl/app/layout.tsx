@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import localFont from 'next/font/local'
 import { TooltipProvider } from '@/components/ui/tooltip';
 import { Toaster } from "@/components/ui/sonner";
-import LenisScroll from '@/components/lenis-scroll';
-import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+
+import "./globals.css";
 
 
 const vazirMatn = localFont({
-  src: './fonts/webfonts/Vazirmatn[wght].woff2',
+  src: '../fonts/webfonts/Vazirmatn[wght].woff2',
   weight: '100 900',
   variable: '--font-sans',
 })
@@ -24,8 +24,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fa-IR" dir="rtl" suppressHydrationWarning>
-      <body className={`${vazirMatn.className} antialiased h-full`}>
+    <html
+      lang="fa-IR"
+      dir="rtl"
+      className={`${vazirMatn.className} antialiased h-full`}
+      suppressHydrationWarning>
+      <body className="h-screen flex flex-col">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -33,7 +37,6 @@ export default function RootLayout({
           enableColorScheme
           disableTransitionOnChange>
           <TooltipProvider>
-            <LenisScroll />
             {children}
             <Toaster />
           </TooltipProvider>

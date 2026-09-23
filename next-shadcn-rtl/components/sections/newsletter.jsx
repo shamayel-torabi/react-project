@@ -2,7 +2,7 @@ import SectionTitle from "./section-title";
 
 export default function Newsletter() {
   return (
-    <section id="news_letter" className="min-h-svh flex flex-col items-center justify-center  bg-white dark:bg-gray-800">
+    <section id="news_letter" className="min-h-svh flex flex-col items-center justify-center  bg-section-background">
       <SectionTitle title="دریافت خبرنامه" subtitle="خبرنامه به ایمیل شما ارسال خواهد شد." />
       <div className="flex flex-col items-center justify-center" style={{direction: 'ltr'}}>
         <div className="flex bg-slate-100 text-sm p-1 rounded-full w-full m-10 border-2 border-white ring ring-slate-200">
