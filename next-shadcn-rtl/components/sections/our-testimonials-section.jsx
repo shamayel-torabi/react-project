@@ -51,7 +51,7 @@ export default function OurTestimonialSection() {
     ];
 
     return (
-        <motion.section initial={{ scale: 0 }}  whileInView={{ scale: 1 }} transition={{ ease: "easeOut", duration: 1 }} id="our_testimonial" className='min-h-svh flex flex-col items-center justify-center bg-section-background'>
+        <motion.section initial={{ scale: 0 }}  whileInView={{ scale: 1 }} transition={{ ease: "easeOut", duration: 1 }} id="our_testimonial" className='min-h-svh flex flex-col items-center justify-center bg-section'>
             <SectionTitle title='سفارشنامه' subtitle='Hear from our satisfied customers about the benefits of using SlideX. We love hearing from our customers.' />
 
             <div className='mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3'>

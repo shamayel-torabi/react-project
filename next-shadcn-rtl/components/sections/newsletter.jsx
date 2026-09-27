@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 
 export default function Newsletter() {
   return (
-    <motion.section initial={{ scale: 0 }}  whileInView={{ scale: 1 }} transition={{ ease: "easeOut", duration: 1 }}  id="news_letter" className="min-h-svh flex flex-col items-center justify-center  bg-section-background">
+    <motion.section initial={{ scale: 0 }}  whileInView={{ scale: 1 }} transition={{ ease: "easeOut", duration: 1 }}  id="news_letter" className="min-h-svh flex flex-col items-center justify-center  bg-section">
       <SectionTitle title="دریافت خبرنامه" subtitle="خبرنامه به ایمیل شما ارسال خواهد شد." />
       <div className="flex flex-col items-center justify-center" style={{direction: 'ltr'}}>
         <div className="flex bg-slate-100 text-sm p-1 rounded-full w-full m-10 border-2 border-white ring ring-slate-200">
