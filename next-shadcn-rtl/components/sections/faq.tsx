@@ -1,7 +1,10 @@
+"use client";
+
+import { motion } from "motion/react";
 
 export default function Faq() {
     return (
-        <section className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
+        <motion.section initial={{ scale: 0 }}  whileInView={{ scale: 1 }} transition={{ ease: "easeOut", duration: 1 }} className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
             <details className="group [&_summary::-webkit-details-marker]:hidden" open>
                 <summary className="flex items-center justify-between gap-1.5 rounded-md border border-gray-100 bg-gray-50 p-4 text-gray-900 dark:border-gray-700 dark:bg-gray-800 dark:text-white"                >
                     <h2 className="text-lg font-medium">Lorem ipsum dolor sit amet consectetur adipisicing?</h2>
@@ -89,6 +92,6 @@ export default function Faq() {
                     explicabo consequuntur distinctio corporis earum similique!
                 </p>
             </details>
-        </section>
+        </motion.section>
     );
 }

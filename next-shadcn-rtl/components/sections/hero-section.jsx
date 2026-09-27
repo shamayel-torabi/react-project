@@ -48,11 +48,10 @@ export default function HeroSection() {
     backgroundImage: `url(${bgImages[currentImage]})`,
   };
 
-
   return (
-    <motion.section initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ ease: "easeOut", duration: 1 }} id="home">
-      <div style={bg} className="h-svh flex flex-col items-center justify-center relative overflow-hidde bg-linear-to-r from-[#0601fa] to-[#05e2f1]  bg-cover bg-top-left">
-        <h1 className="text-clamp text-center font-semibold max-w-7xl bg-linear-to-r from-[#0601fa] to-[#05e2f1] text-transparent bg-clip-text">
+    <motion.section initial={{ scale: 0 }} whileInView={{ scale: 1 }} transition={{ ease: "easeIn", duration: 1 }}>
+      <div style={bg} className="h-svh flex flex-col items-center justify-center relative overflow-hidde  bg-cover bg-top-left">
+        <h1 className="text-clamp text-center font-semibold max-w-7xl bg-linear-to-l from-white to-[#c2f703] text-transparent bg-clip-text">
           ساخت و برپایی رابط کاربری از پیش ساخته
         </h1>
         <p className="text-slate-600 dark:text-slate-100 md:text-base max-md:px-2 text-center max-w-lg mt-3">
@@ -79,6 +78,7 @@ export default function HeroSection() {
             <img key={index} src={logo} alt="logo" className="h-7 w-auto max-w-xs" />
           ))}
         </div>
+        <div className="absolute inset-0 bg-linear-to-b from-transparent to-black/50 bg-cover bg-top-left"></div>
       </div>
     </motion.section>
   );

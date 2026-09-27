@@ -1,8 +1,10 @@
+"use client";
 import SectionTitle from "./section-title";
+import { motion } from "motion/react";
 
 export default function Newsletter() {
   return (
-    <section id="news_letter" className="min-h-svh flex flex-col items-center justify-center  bg-section-background">
+    <motion.section initial={{ scale: 0 }}  whileInView={{ scale: 1 }} transition={{ ease: "easeOut", duration: 1 }}  id="news_letter" className="min-h-svh flex flex-col items-center justify-center  bg-section-background">
       <SectionTitle title="دریافت خبرنامه" subtitle="خبرنامه به ایمیل شما ارسال خواهد شد." />
       <div className="flex flex-col items-center justify-center" style={{direction: 'ltr'}}>
         <div className="flex bg-slate-100 text-sm p-1 rounded-full w-full m-10 border-2 border-white ring ring-slate-200">
@@ -13,6 +15,6 @@ export default function Newsletter() {
         </div>
         <button className="font-medium md:hidden btn text-white px-7 py-3 rounded-full hover:opacity-90 active:scale-95 transition">به روز رسانی</button>
       </div>
-    </section>
+    </motion.section>
   );
 }

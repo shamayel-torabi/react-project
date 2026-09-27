@@ -3,6 +3,7 @@
 import SectionTitle from './section-title';
 import { MinusIcon, PlusIcon } from 'lucide-react';
 import { useState } from 'react';
+import { motion } from "motion/react";
 
 export default function FaqSection() {
     const [isOpen, setIsOpen] = useState(false);
@@ -34,7 +35,7 @@ export default function FaqSection() {
     ];
 
     return (
-        <section id="faq" className='h-svh flex flex-col items-center justify-center pt-16'>
+        <motion.section initial={{ scale: 0 }}  whileInView={{ scale: 1 }} transition={{ ease: "easeOut", duration: 1 }} id="faq" className='h-svh flex flex-col items-center justify-center pt-16'>
             <SectionTitle title="سوالات متداول" subtitle="دنبال سوالات خود اینجا باش ؟ بخش سوالات زیر و پاسخ آن را در ذیل پیدا کن." />
             <div className='mx-auto mt-12 w-full max-w-xl'>
                 {data.map((item, index) => (
@@ -47,6 +48,6 @@ export default function FaqSection() {
                     </div>
                 ))}
             </div>
-        </section>
+        </motion.section>
     );
 }

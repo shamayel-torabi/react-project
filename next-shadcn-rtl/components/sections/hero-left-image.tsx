@@ -1,7 +1,9 @@
+"use client";
+import { motion } from "motion/react";
 
 export default function HeroLeftImage() {
     return (
-        <section className="lg:grid lg:h-screen lg:place-content-center">
+        <motion.section initial={{ scale: 0 }}  whileInView={{ scale: 1 }} transition={{ ease: "easeOut", duration: 1 }} className="lg:grid lg:h-screen lg:place-content-center">
             <div
                 className="mx-auto w-screen max-w-7xl px-4 py-16 sm:px-6 sm:py-24 md:grid md:grid-cols-2 md:items-center md:gap-4 lg:px-8 lg:py-32"
             >
@@ -66,6 +68,6 @@ export default function HeroLeftImage() {
                     </g>
                 </svg>
             </div>
-        </section>
+        </motion.section>
     );
 }

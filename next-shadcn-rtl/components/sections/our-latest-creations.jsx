@@ -1,4 +1,6 @@
+"use client";
 import SectionTitle from "./section-title";
+import { motion } from "motion/react";
 
 export default function OurLatestCreations() {
 
@@ -20,7 +22,7 @@ export default function OurLatestCreations() {
         },
     ];
     return (
-        <section id="last_creation" className="min-h-svh flex flex-col items-center justify-center">
+        <motion.section initial={{ scale: 0 }}  whileInView={{ scale: 1 }} transition={{ ease: "easeOut", duration: 1 }} id="last_creation" className="min-h-svh flex flex-col items-center justify-center">
             <SectionTitle title="آخرین دستاوردهای ما" subtitle="مجموعه ای از آخرین دستاوردهای ما -  هر بخش با ظرافت احساس و دقت ساخته شده است." />
             <div className="flex flex-wrap items-center justify-center gap-10 mt-16">
                 {data.map((item, index) => (
@@ -31,6 +33,6 @@ export default function OurLatestCreations() {
                     </div>
                 ))}
             </div>
-        </section>
+        </motion.section>
     );
 }

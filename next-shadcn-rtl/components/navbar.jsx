@@ -11,7 +11,8 @@ export default function Navbar() {
   const [openDropdown, setOpenDropdown] = useState(null);
 
   const links = [
-    { name: "خانه", href: "#home" },
+    { name: "خانه", href: "/" },
+    { name: "آزمایش", href: "/test" },
     { name: "سوابق", href: "#what_we_do" },
     { name: "دستاوردها", href: "#last_creation" },
     { name: "سفارش نامه", href: "#our_testimonial" },

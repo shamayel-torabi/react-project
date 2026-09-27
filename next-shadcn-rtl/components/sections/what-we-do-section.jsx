@@ -5,7 +5,7 @@ import { motion } from "motion/react";
 
 export default function WhatWeDoSection() {
   return (
-    <motion.section initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ ease: "easeOut", duration: 1 }} id="what_we_do" className="min-h-svh flex flex-col items-center justify-center bg-section-background">
+    <motion.section initial={{ scale: 0 }}  whileInView={{ scale: 1 }} transition={{ ease: "easeOut", duration: 1 }} id="what_we_do" className="min-h-svh flex flex-col items-center justify-center bg-section-background">
       <SectionTitle title="سوابق ما" />
       <div className="flex flex-col md:flex-row items-center justify-center gap-20">
         <div className="relative shadow-2xl shadow-indigo-600/40 rounded-2xl overflow-hidden shrink-0">
