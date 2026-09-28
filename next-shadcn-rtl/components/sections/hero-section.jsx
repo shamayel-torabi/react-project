@@ -49,12 +49,12 @@ export default function HeroSection() {
   };
 
   return (
-    <motion.section initial={{ scale: 0 }} whileInView={{ scale: 1 }} transition={{ ease: "easeIn", duration: 1 }}>
+    <motion.section initial={{ scale: 0, opacity:0 }} whileInView={{ scale: 1, opacity: 1 }}>
       <div style={bg} className="h-svh flex flex-col items-center justify-center relative overflow-hidde  bg-cover bg-top-left">
         <h1 className="text-clamp text-center font-semibold max-w-7xl bg-linear-to-l from-white to-[#c2f703] text-transparent bg-clip-text">
           ساخت و برپایی رابط کاربری از پیش ساخته
         </h1>
-        <p className="text-slate-600 dark:text-slate-100 md:text-base max-md:px-2 text-center max-w-lg mt-3">
+        <p className="text-slate-100 md:text-base max-md:px-2 text-center max-w-lg mt-3">
           یک بانک اطلاعاتی بدون سرور پستگرس که به شما کمک می کند سریع و مقیاس پذیر بدون محدودیت نرم افزار تولید کنید
         </p>
 
@@ -63,7 +63,7 @@ export default function HeroSection() {
           <ArrowLeftIcon className="size-5" />
         </button>
 
-        <div className="text-gray-800 dark:text-gray-200 bg-linear-to-b from-indigo-600/50 to-gray-300/50 p-px rounded-[7px] mt-8">
+        <div className="text-gray-200 bg-linear-to-b from-indigo-600/90 to-gray-300/40 p-px rounded-[7px] mt-8">
           <div className="flex items-center gap-2 rounded-md px-4 py-3">
             <button onClick={handleCopy} className="cursor-pointer ml-2">
               {isCopied ? <CheckIcon className="size-4" /> : <CopyIcon className="size-4" />}
@@ -71,14 +71,14 @@ export default function HeroSection() {
             <span>{installCommand}</span> $
           </div>
         </div>
-        <p className="py-6 text-slate-600 dark:text-slate-200 mt-14">مورد تائید برندهای معتبر </p>
+        <p className="py-6 text-slate-100 mt-14">مورد تائید برندهای معتبر </p>
 
-        <div className="flex flex-wrap justify-around max-sm:justify-center gap-10 max-w-4xl w-full mx-auto py-4" id="logo-container">
+        <div className="flex flex-wrap justify-around max-sm:justify-center gap-10 max-w-4xl w-full mx-auto py-4 text-white" id="logo-container">
           {logos.map((logo, index) => (
-            <img key={index} src={logo} alt="logo" className="h-7 w-auto max-w-xs" />
+            <img key={index} src={logo} alt="logo" className="h-7 w-auto max-w-xs " />
           ))}
         </div>
-        <div className="absolute inset-0 bg-linear-to-b from-transparent to-black/50 bg-cover bg-top-left"></div>
+        <div className="absolute inset-0 bg-linear-to-b to-transparent from-black/90 bg-cover bg-top-left"></div>
       </div>
     </motion.section>
   );

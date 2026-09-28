@@ -151,6 +151,10 @@
   --shadow-2xl: var(--shadow-2xl);
 
   --text-clamp: clamp(2rem, 4.0vw, 10rem);
+  --hue-1 : hsl(0 86% 61%);
+  --hue-6 : hsl(0 86% 20%);
+  --hue-4 : hsl(235 91% 74%);
+  --white : hsl(0 0% 97%);
 }
 
 @layer base {

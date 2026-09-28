@@ -27,7 +27,7 @@ export default function Header() {
                                     className="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
                                     href="#"
                                 >
-                                    About
+                                    درباره
                                 </a>
                             </li>
 
@@ -36,7 +36,7 @@ export default function Header() {
                                     className="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
                                     href="#"
                                 >
-                                    Careers
+                                    شغل
                                 </a>
                             </li>
 
@@ -45,7 +45,7 @@ export default function Header() {
                                     className="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
                                     href="#"
                                 >
-                                    History
+                                    تاریخچه
                                 </a>
                             </li>
 
@@ -54,7 +54,7 @@ export default function Header() {
                                     className="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
                                     href="#"
                                 >
-                                    Services
+                                    خدمات
                                 </a>
                             </li>
 
@@ -63,7 +63,7 @@ export default function Header() {
                                     className="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
                                     href="#"
                                 >
-                                    Projects
+                                    پروژه ها
                                 </a>
                             </li>
 
@@ -72,7 +72,7 @@ export default function Header() {
                                     className="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
                                     href="#"
                                 >
-                                    Blog
+                                    بلاگ
                                 </a>
                             </li>
                         </ul>
@@ -84,14 +84,14 @@ export default function Header() {
                                 className="block rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-teal-700 dark:hover:bg-teal-500"
                                 href="#"
                             >
-                                Login
+                                ورود
                             </a>
 
                             <a
                                 className="hidden rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600 transition hover:text-teal-600/75 sm:block dark:bg-gray-800 dark:text-white dark:hover:text-white/75"
                                 href="#"
                             >
-                                Register
+                                ثبت نام
                             </a>
                         </div>
 
@@ -106,9 +106,9 @@ export default function Header() {
                                 fill="none"
                                 viewBox="0 0 24 24"
                                 stroke="currentColor"
-                                stroke-width="2"
+                                strokeWidth="2"
                             >
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
                             </svg>
                         </button>
                     </div>
