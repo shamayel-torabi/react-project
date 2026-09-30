@@ -1,4 +1,4 @@
-import { ScrollProgress } from '@/components/scroll-progress';
+import { ScrollProgress } from '@/components/motion/scroll-progress';
 import FaqSection from '@/components/sections/faq-section';
 import HeroCenter from '@/components/sections/hero-center';
 import HeroLeftImage from '@/components/sections/hero-left-image';

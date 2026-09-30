@@ -150,11 +150,21 @@
   --shadow-xl: var(--shadow-xl);
   --shadow-2xl: var(--shadow-2xl);
 
-  --text-clamp: clamp(2rem, 4.0vw, 10rem);
-  --hue-1 : hsl(0 86% 61%);
-  --hue-6 : hsl(0 86% 20%);
-  --hue-4 : hsl(235 91% 74%);
-  --white : hsl(0 0% 97%);
+  --text-clamp: clamp(2rem, 4vw, 10rem);
+  --hue-0: var(--yellow);
+  --hue-1: #ff0088;
+  --hue-2: #dd00ee;
+  --hue-3: #9911ff;
+  --hue-4: #1e75f7;
+  --hue-5: #0cdcf7;
+  --hue-6: var(--green);
+  --hue-0-transparent: #fff31244;
+  --hue-1-transparent: #ff008844;
+  --hue-2-transparent: #dd00ee44;
+  --hue-3-transparent: #9911ff44;
+  --hue-4-transparent: #8ac0ff44;
+  --hue-5-transparent: #0cdcf744;
+  --hue-6-transparent: #8df0cc44;
 }
 
 @layer base {
@@ -170,7 +180,6 @@
     @apply bg-background text-foreground;
   }
 }
-
 
 @keyframes marquee {
   from {
@@ -211,13 +220,10 @@
 
 @keyframes orbit {
   0% {
-    transform: rotate(calc(var(--angle) * 1deg))
-      translateY(calc(var(--radius) * -1px)) rotate(calc(var(--angle) * -1deg));
+    transform: rotate(calc(var(--angle) * 1deg)) translateY(calc(var(--radius) * -1px)) rotate(calc(var(--angle) * -1deg));
   }
   100% {
-    transform: rotate(calc(var(--angle) * 1deg + 360deg))
-      translateY(calc(var(--radius) * -1px))
-      rotate(calc((var(--angle) * 1deg + 360deg) * -1));
+    transform: rotate(calc(var(--angle) * 1deg + 360deg)) translateY(calc(var(--radius) * -1px)) rotate(calc((var(--angle) * 1deg + 360deg) * -1));
   }
 }
 

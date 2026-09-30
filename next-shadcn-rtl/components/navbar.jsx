@@ -12,6 +12,7 @@ export default function Navbar() {
 
   const links = [
     { name: "خانه", href: "/" },
+    { name: "پویانمایی", href: "/animation" },
     { name: "آزمایش", href: "/test" },
     { name: "سوابق", href: "#what_we_do" },
     { name: "دستاوردها", href: "#last_creation" },
