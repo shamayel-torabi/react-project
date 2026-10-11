@@ -2,27 +2,28 @@ import { Vortex } from "@/components/velora/vortex";
 
 export default function VortexDemo() {
     return (
-        <section className="w-full min-h-svh grid place-content-center bg-background overflow-hidden rounded-lg">
-            <Vortex  />
-            <p className="text-3xl font-semibold">آشنایی با پس زمینه ورتکس</p>
+        <section className="w-full min-h-svh grid place-content-center bg-background overflow-hidden rounded-lg  text-center">
+            <Vortex className="text-foreground" />
+            <h1 className="text-3xl font-semibold ">آشنایی با پس زمینه ورتکس</h1>
+            <div className="max-w-3xl">
+                <p className="text-sm font-semibold my-2">خبرگزاری یمنی: عربستان از چین خواسته رسماً میانجی‌گری با یمن را برای اعلام آتش‌بس، بر عهده بگیرد. یمن هم گفته پیش از اعلام هرگونه آتش‌بس، ریاض باید تعهدات مربوط به روند صلح را اجرا کند.</p>
+                <p className="text-sm font-semibold  my-2">
+                    به گزارش تابناک؛ خبرگزاری یمنی YNP در گزارشی اختصاصی نوشت که منابع آگاه اعلام کرده‌اند عربستان سعودی از دولت چین خواسته است به‌طور رسمی میانجیگری با صنعا را برای اعلام آتش‌بس میان دو طرف بر عهده بگیرد.
+                </p>
+                <p className="text-sm font-semibold  my-2">
+                    خبرگزاری یمنی YNP در گزارشی اختصاصی نوشت که منابع آگاه اعلام کرده‌اند عربستان سعودی از دولت چین خواسته است به‌طور رسمی میانجیگری با صنعا را برای اعلام آتش‌بس میان دو طرف بر عهده بگیرد.
+                </p>
+                <p className="text-sm font-semibold  my-2">
+                    بنا بر این گزارس؛ این منابع افزودند که ریاض به پکن اطلاع داده است آمادگی دارد با برقراری آتش‌بس با صنعا در یمن موافقت کند؛ آتش‌بسی که توقف عملیات نظامی، از جمله حملات هوایی، را دربرمی‌گیرد.
+                </p>
+                <p className="text-sm font-semibold  my-2">
+                    به گفته این منابع، صنعا نیز اعلام کرده است که پیش از اعلام هرگونه آتش‌بس، عربستان سعودی باید تعهدات مربوط به روند صلح را اجرا کند.
+                </p>
+                 <p className="text-sm font-semibold  my-2">
+                     سرگی لاوروف وزیرامورخارجه در حاشیه اجلاس در ترکمنستان توجه اش به پیکسل روی کت سید عباس عراقچی جلب می شود و به آن اشاره می کند و سپس به وزیر خارجه به مزاح گفت: «پس آن سه جزیره کو؟» که با جواب معنادار عراقچی روبه‌رو می شود، عراقچی به قلب خود اشاره می کند و می گوید: «آن سه جزیره اینجا هستند!»
+                 </p>
+            </div>
         </section>
 
-        // <section className="relative w-full min-h-svh overflow-hidden rounded-2xl px-6 py-16 text-center text-black">
-        //     <Vortex  />
-        //     <div className="relative mx-auto max-w-lg">
-        //         <h2 className="text-3xl font-semibold tracking-tight text-balance sm:text-4xl">
-        //             Everything your team ships, in one place
-        //         </h2>
-        //         <p className="mt-3 text-pretty text-neutral-300">
-        //             Start free. Invite your team when you are ready — no card required.
-        //         </p>
-        //         <a
-        //             href="#"
-        //             className="mt-8 inline-flex rounded-full bg-white px-6 py-2.5 text-sm font-medium text-neutral-950 shadow-lg transition-colors hover:bg-neutral-200 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-950 focus-visible:outline-none"
-        //         >
-        //             Start building
-        //         </a>
-        //     </div>
-        // </section>
     );
 }

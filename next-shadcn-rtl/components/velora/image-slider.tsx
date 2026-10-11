@@ -135,10 +135,9 @@ export function ImageSlider({
             type="button"
             aria-label={playing ? "Pause slideshow" : "Play slideshow"}
             onClick={() => setChoice(!playing)}
-            className={cn(button, "absolute end-4 bottom-4 z-20")}
+            className={cn(button, "absolute right-4 bottom-4 z-20")}
           >
             <Icon d={playing ? "M9 5v14M15 5v14" : "M7 4.5v15L19.5 12Z"} />
-
           </button>
         )}
 
@@ -180,9 +179,9 @@ export function ImageSlider({
                 type="button"
                 aria-label={d < 0 ? "Previous slide" : "Next slide"}
                 onClick={() => go(d)}
-                className={cn(button, "absolute top-1/2 z-20 -translate-y-1/2", d < 0 ? "start-3 sm:start-4" : "end-3 sm:end-4")}
+                className={cn(button, "absolute top-1/2 z-20 -translate-y-1/2", d < 0 ? "left-3 sm:left-4" : "right-3 sm:right-4")}
               >
-                <Icon d={d < 0 ? "m9 18 6-6-6-6" :"m15 18-6-6 6-6" } />
+                <Icon d={d < 0 ? "m15 18-6-6 6-6" : "m9 18 6-6-6-6"} />
               </button>
             ))}
             <div className="pointer-events-none absolute inset-x-16 bottom-5 z-20 flex flex-wrap items-center justify-center gap-1">

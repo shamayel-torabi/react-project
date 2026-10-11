@@ -15,7 +15,7 @@ export default function ImageSliderHeroDemo() {
       images={images}
       interval={6000}
       label="Featured homes"
-      className="h-svh "
+      className="h-[calc(100vh-4rem)] "
     >
       <div className="flex h-full flex-col items-center justify-center bg-radial from-black/40 to-transparent to-70% px-16 pb-10 text-center">
         <span className="rounded-full border border-white/30 bg-white/10 px-3 py-1 text-xs font-medium tracking-wide backdrop-blur">

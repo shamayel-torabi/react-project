@@ -20,6 +20,7 @@ export default function Navbar() {
         { name: "پس زمینه", href: "/bgtest", icon: FileVideo, description: "آزمایش پس زمینه" },
         { name: "ورتکس", href: "/vortex", icon: AudioLines, description: "آزمایش پس زمینه vortex" },
         { name: "جعبه ای", href: "/box-bg", icon: AudioLines, description: "آزمایش پس زمینه جعبه ای" },
+        { name: "رترو", href: "/retro-bg", icon: AudioLines, description: "آزمایش پس زمینه رترو" },
         { name: "کره زمین", href: "/globe", icon: LightbulbIcon, description: "نمایش کره زمین" },
         { name: "تصویر چرخان", href: "/image-slider", icon: FileTextIcon, description: "تصویر چرخان" },
       ],
@@ -32,8 +33,8 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="shadow-2xl">
-      <nav className="sticky top-0 z-50 flex gap-4 w-full items-center justify-between dark:bg-white/10 bg-black/10 px-4 py-3.5 backdrop-blur-md lg:px-8">
+    <header className=" shadow-2xl">
+      <nav className="sticky  inset-0 z-50 flex gap-4 w-full items-center justify-between dark:bg-white/10 bg-black/10 px-4 py-3.5 backdrop-blur-md lg:px-8">
         <Link href="/">
           <Image src="/assets/logo.svg" alt="logo" className="h-8.5 w-auto" width={205} height={48} />
         </Link>
