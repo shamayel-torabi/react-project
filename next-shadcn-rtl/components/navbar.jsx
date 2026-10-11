@@ -12,24 +12,23 @@ export default function Navbar() {
 
   const links = [
     { name: "خانه", href: "/" },
-    { name: "پویانمایی", href: "/animation" },
-    { name: "آزمایش", href: "/test" },
+    {
+      name: "منوی آزمایش",
+      subLinks: [
+        { name: "نمونه", href: "/test", icon: FileTextIcon, description: "نمونه" },
+        { name: "پویانمایی", href: "/animation", icon: ImageUpIcon, description: "پویانمایی" },
+        { name: "پس زمینه", href: "/bgtest", icon: FileVideo, description: "آزمایش پس زمینه" },
+        { name: "ورتکس", href: "/vortex", icon: AudioLines, description: "آزمایش پس زمینه vortex" },
+        { name: "جعبه ای", href: "/box-bg", icon: AudioLines, description: "آزمایش پس زمینه جعبه ای" },
+        { name: "کره زمین", href: "/globe", icon: LightbulbIcon, description: "نمایش کره زمین" },
+        { name: "تصویر چرخان", href: "/image-slider", icon: FileTextIcon, description: "تصویر چرخان" },
+      ],
+    },
     { name: "سوابق", href: "#what_we_do" },
     { name: "دستاوردها", href: "#last_creation" },
     { name: "سفارش نامه", href: "#our_testimonial" },
     { name: "سوالات متداول", href: "#faq" },
     { name: "خبرنامه", href: "#news_letter" },
-    {
-      name: "محصولات",
-      subLinks: [
-        { name: "متن به اسلاید", href: "#products/text-to-slides", icon: FileTextIcon, description: "تبدیل متن به اسلاید" },
-
-        { name: "تصویر به اسلاید", href: "#products/image-to-slides", icon: ImageUpIcon, description: "تبدیل تصویر به اسلاید" },
-        { name: "ویدئو به اسلاید", href: "#products/video-to-slides", icon: FileVideo, description: "تبدیل ویدئو به اسلاید" },
-        { name: "صدا به اسلاید", href: "#products/audio-to-slides", icon: AudioLines, description: "تبدیل صدا به اسلاید" },
-        { name: "ایده به اسلاید", href: "#products/ideas-to-slides", icon: LightbulbIcon, description: "ایجاد اسلاید از ایده شما" },
-      ],
-    },
   ];
 
   return (
@@ -51,7 +50,7 @@ export default function Navbar() {
                 <div
                   className={`absolute top-6  inset-x-auto z-40 w-lg rounded-md border border-gray-100 text-gray-800 dark:text-gray-200 bg-gray-100 dark:bg-gray-900 p-3 shadow-lg transition-all duration-200 ease-in-out ${openDropdown === link.name ? "visible translate-y-0 opacity-100" : "invisible -translate-y-2 opacity-0"}`}
                 >
-                  <p>کاوش در ابزار هوش مصنوعی</p>
+                  <p>{link.name}</p>
                   <div className="mt-3 grid grid-cols-2 gap-2">
                     {link.subLinks.map((sub) => (
                       <Link
